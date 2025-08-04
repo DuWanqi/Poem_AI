@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/classical_background">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="分享作品"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/classical_text"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 卡片预览 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="作品预览："
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/classical_text"
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:background="@android:drawable/edit_text"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/tvSharePreview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="作品预览将在此显示"
+            android:textColor="@color/classical_text"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- 背景选择按钮 -->
+    <Button
+        android:id="@+id/btnSelectBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择卡片背景"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_primary"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 分享操作按钮 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSaveToLocal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="保存到本地"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/classical_secondary"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnSaveToWorks"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="保存到我的作品"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/classical_primary"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- 关闭按钮 -->
+    <Button
+        android:id="@+id/btnCloseShare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="关闭"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_accent"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

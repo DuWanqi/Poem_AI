@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/classical_background"
+    tools:context=".CardCreateActivity">
+
+    <!-- 顶部标题栏 -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/create_card"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/classical_text" />
+
+        <!-- 设置按钮 -->
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@android:drawable/ic_menu_manage"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/classical_text"
+            android:contentDescription="@string/create_card" />
+    </LinearLayout>
+
+    <!-- 卡片内容输入区 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/topBar"
+        android:layout_above="@id/bottomBar"
+        android:layout_marginBottom="16dp"
+        app:boxStrokeColor="@color/classical_primary"
+        app:boxStrokeWidthFocused="2dp">
+
+        <EditText
+            android:id="@+id/etCardContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/enter_text"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:scrollbars="vertical"
+            android:textColor="@color/classical_text"
+            android:textColorHint="@color/classical_text"
+            android:alpha="0.7"
+            android:importantForAutofill="auto"
+            android:autofillHints="content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 底部操作栏 -->
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btnRecommendCiPai"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_recommended"
+            android:textColor="@color/classical_primary" />
+
+        <Button
+            android:id="@+id/btnSaveCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            style="?attr/borderlessButtonStyle"
+            android:textColor="@color/classical_primary" />
+
+    </LinearLayout>
+
+</RelativeLayout>

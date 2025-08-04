@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">诗词AI</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="welcome">欢迎使用诗词AI</string>
+    <string name="create_card">制作卡片</string>
+    <string name="my_works">我的作品</string>
+    <string name="compose_poem">创作诗词</string>
+    <string name="recommend_title">推荐词牌</string>
+    <string name="your_content">您的内容：</string>
+    <string name="btn_recommended">词牌推荐</string>
+    <string name="btn_back">返回</string>
+    <string name="save">保存</string>
+    <string name="cancel">取消</string>
+    <string name="delete">删除</string>
+    <string name="edit">编辑</string>
+    <string name="title">标题</string>
+    <string name="content">内容</string>
+    <string name="prompt">提示词</string>
+    <string name="complete_poem">补全诗词</string>
+    <string name="api_key">API密钥</string>
+    <string name="save_api_key">保存API密钥</string>
+    <string name="enter_text">请输入文本内容</string>
+    <string name="search_rhyme">查询押韵字</string>
+    <string name="rhyme_word">押韵字</string>
+</resources>

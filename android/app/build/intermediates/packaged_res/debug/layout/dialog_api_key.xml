@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/classical_background">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="API Key设置"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/classical_text"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- API Key输入框 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DeepSeek API Key："
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/classical_text"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/etApiKey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入API Key"
+        android:textColor="@color/classical_text"
+        android:textColorHint="@color/classical_text"
+        android:background="@android:drawable/edit_text"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"
+        android:inputType="textVisiblePassword" />
+
+    <!-- 记住API Key选项 -->
+    <CheckBox
+        android:id="@+id/cbRememberKey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="记住API Key"
+        android:textColor="@color/classical_text"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 教学文档按钮 -->
+    <Button
+        android:id="@+id/btnTutorial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查看API申请指南"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_secondary"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 操作按钮 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSaveApiKey"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="保存"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/classical_primary"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnCloseApiKey"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+        android:layout_weight="1"
+            android:text="关闭"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/classical_accent"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+</LinearLayout>

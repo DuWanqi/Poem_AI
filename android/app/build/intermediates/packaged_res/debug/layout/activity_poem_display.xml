@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/classical_background"
+    tools:context=".PoemDisplayActivity">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="词牌推荐"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/classical_text"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="词牌名："
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/classical_text"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvCiPaiName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/edit_text"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:textColor="@color/classical_text"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="示例诗词："
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/classical_text"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvExamplePoem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/edit_text"
+                android:padding="12dp"
+                android:minHeight="200dp"
+                android:textSize="16sp"
+                android:textColor="@color/classical_text"
+                android:layout_marginBottom="24dp"
+                android:lineSpacingExtra="4dp"
+                android:gravity="top" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnUseTemplate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择该词牌为模板"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_primary"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_back"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_secondary" />
+
+</LinearLayout>

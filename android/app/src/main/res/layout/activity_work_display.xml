@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/classical_background"
+    android:padding="16dp"
+    tools:context=".WorkDisplayActivity">
+
+    <!-- 顶部标题栏 -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/tvWorkTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="作品展示"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/classical_text" />
+
+        <!-- 更多操作按钮 -->
+        <ImageButton
+            android:id="@+id/btnMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_more"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="更多操作" />
+    </LinearLayout>
+
+    <!-- 作品内容显示区 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topBar"
+        android:layout_above="@id/bottomBar"
+        android:layout_marginBottom="16dp"
+        android:background="@android:drawable/edit_text"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvWorkContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/classical_text"
+            android:lineSpacingExtra="4dp" />
+    </ScrollView>
+
+    <!-- 底部操作栏 -->
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="返回"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/classical_secondary"
+            android:layout_marginEnd="8dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

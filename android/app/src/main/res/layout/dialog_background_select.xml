@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/classical_background">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择卡片背景"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/classical_text"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 背景选项 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="默认背景："
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/classical_text"
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:drawable/edit_text"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp">
+
+        <!-- 婉约风格 -->
+        <Button
+            android:id="@+id/btnElegant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="婉约风格"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/classical_primary"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 豪放风格 -->
+        <Button
+            android:id="@+id/btnHeroic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="豪放风格"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/classical_primary"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 空白风格 -->
+        <Button
+            android:id="@+id/btnBlank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="空白风格"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/classical_primary"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 朱红纯色 -->
+        <Button
+            android:id="@+id/btnRedSolid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="朱红纯色"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/classical_primary"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 淡黑纯色 -->
+        <Button
+            android:id="@+id/btnDarkSolid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="淡黑纯色"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/classical_primary"
+            android:layout_marginBottom="8dp" />
+    </LinearLayout>
+
+    <!-- 导入背景按钮 -->
+    <Button
+        android:id="@+id/btnImportBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="导入外部图片"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_secondary"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 关闭按钮 -->
+    <Button
+        android:id="@+id/btnCloseBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="关闭"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_accent" />
+
+</LinearLayout>
