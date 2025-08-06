@@ -6,6 +6,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -42,9 +43,21 @@ public class LaunchActivity extends AppCompatActivity {
     }
 
     private void setupListeners() {
-        btnLogin.setOnClickListener(v -> startActivity(new Intent(LaunchActivity.this, LoginActivity.class)));
+        btnLogin.setOnClickListener(v -> {
+            try {
+                startActivity(new Intent(LaunchActivity.this, LoginActivity.class));
+            } catch (Exception e) {
+                Toast.makeText(LaunchActivity.this, "无法启动登录界面: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
         
-        btnRegister.setOnClickListener(v -> startActivity(new Intent(LaunchActivity.this, RegisterActivity.class)));
+        btnRegister.setOnClickListener(v -> {
+            try {
+                startActivity(new Intent(LaunchActivity.this, RegisterActivity.class));
+            } catch (Exception e) {
+                Toast.makeText(LaunchActivity.this, "无法启动注册界面: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
     
     private void setupAnimations() {

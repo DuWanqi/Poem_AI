@@ -1,5 +1,9 @@
 [
     {
+        "merged": "com.example.poemai.app-merged_res-14:/xml_network_security_config.xml.flat",
+        "source": "com.example.poemai.app-main-16:/xml/network_security_config.xml"
+    },
+    {
         "merged": "com.example.poemai.app-merged_res-14:/layout_activity_work_display.xml.flat",
         "source": "com.example.poemai.app-main-16:/layout/activity_work_display.xml"
     },
@@ -70,6 +74,10 @@
     {
         "merged": "com.example.poemai.app-merged_res-14:/layout_activity_poem_display.xml.flat",
         "source": "com.example.poemai.app-main-16:/layout/activity_poem_display.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-14:/raw_certificate.crt.flat",
+        "source": "com.example.poemai.app-main-16:/raw/certificate.crt"
     },
     {
         "merged": "com.example.poemai.app-merged_res-14:/drawable_calligraphy_text.xml.flat",

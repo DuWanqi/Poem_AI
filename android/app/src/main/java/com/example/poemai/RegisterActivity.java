@@ -69,35 +69,40 @@ public class RegisterActivity extends AppCompatActivity {
 
         btnRegister.setEnabled(false);
         
-        RegisterRequest request = new RegisterRequest(username, password);
-        Call<LoginResponse> call = RetrofitClient.getInstance().getApiService().register(request);
-        call.enqueue(new Callback<LoginResponse>() {
-            @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                btnRegister.setEnabled(true);
-                
-                if (response.isSuccessful() && response.body() != null) {
-                    LoginResponse registerResponse = response.body();
+        try {
+            RegisterRequest request = new RegisterRequest(username, password);
+            Call<LoginResponse> call = RetrofitClient.getInstance().getApiService().register(request);
+            call.enqueue(new Callback<LoginResponse>() {
+                @Override
+                public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                    btnRegister.setEnabled(true);
                     
-                    if (registerResponse.getToken() != null) {
-                        // 注册成功
-                        preferencesManager.saveAuthToken(registerResponse.getToken(), registerResponse.getUserId());
-                        Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
-                        finish();
+                    if (response.isSuccessful() && response.body() != null) {
+                        LoginResponse registerResponse = response.body();
+                        
+                        if (registerResponse.getToken() != null) {
+                            // 注册成功
+                            preferencesManager.saveAuthToken(registerResponse.getToken(), registerResponse.getUserId());
+                            Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else {
+                            // 注册失败
+                            Toast.makeText(RegisterActivity.this, "注册失败: " + registerResponse.getError(), Toast.LENGTH_LONG).show();
+                        }
                     } else {
-                        // 注册失败
-                        Toast.makeText(RegisterActivity.this, "注册失败: " + registerResponse.getError(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(RegisterActivity.this, "注册失败，请稍后重试", Toast.LENGTH_LONG).show();
                     }
-                } else {
-                    Toast.makeText(RegisterActivity.this, "注册失败，请稍后重试", Toast.LENGTH_LONG).show();
                 }
-            }
 
-            @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
-                btnRegister.setEnabled(true);
-                Toast.makeText(RegisterActivity.this, "网络错误: " + t.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
+                @Override
+                public void onFailure(Call<LoginResponse> call, Throwable t) {
+                    btnRegister.setEnabled(true);
+                    Toast.makeText(RegisterActivity.this, "网络错误: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
+        } catch (Exception e) {
+            btnRegister.setEnabled(true);
+            Toast.makeText(this, "注册过程出现错误: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 }

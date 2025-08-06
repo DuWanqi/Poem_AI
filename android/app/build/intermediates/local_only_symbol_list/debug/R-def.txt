@@ -126,6 +126,7 @@ layout dialog_settings
 layout dialog_share
 layout item_cipai
 layout item_work
+raw certificate
 string api_key
 string app_name
 string btn_back
@@ -158,3 +159,4 @@ style Theme.PoemAI
 style Theme.PoemAI.Classical
 style WindowAnimationTransition
 xml backup_rules
+xml network_security_config
