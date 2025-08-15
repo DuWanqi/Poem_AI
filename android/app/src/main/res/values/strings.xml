@@ -26,4 +26,9 @@
     <string name="enter_text">请输入文本内容</string>
     <string name="search_rhyme">查询押韵字</string>
     <string name="rhyme_word">押韵字</string>
+    <string name="logout">退出登录</string>
+    <string name="select_direction">选择排列方向</string>
+    <string name="horizontal">横排</string>
+    <string name="vertical">竖排</string>
+    <string name="close">关闭</string>
 </resources>

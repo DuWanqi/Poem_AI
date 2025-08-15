@@ -8,7 +8,7 @@ public class CiPai implements Serializable {
     private Long id;
     private String name;
     
-    @SerializedName("example_text")
+    @SerializedName("exampleText")
     private String exampleText;
     
     @SerializedName("sentence_lengths")

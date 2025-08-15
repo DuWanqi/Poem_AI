@@ -22,6 +22,7 @@
 
     <!-- 卡片预览区域 -->
     <LinearLayout
+        android:id="@+id/llCardPreview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -30,10 +31,20 @@
         android:background="@android:drawable/edit_text"
         android:padding="16dp">
 
+        <ImageView
+            android:id="@+id/ivBackgroundPreview"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop" />
+
         <TextView
             android:id="@+id/tvCardPreview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:textSize="16sp"
             android:textColor="@color/classical_text"
             android:lineSpacingExtra="4dp"

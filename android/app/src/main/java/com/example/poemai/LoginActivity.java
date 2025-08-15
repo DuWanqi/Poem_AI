@@ -2,6 +2,7 @@ package com.example.poemai;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +21,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
+    private static final String TAG = "LoginActivity";
     private EditText etUsername, etPassword;
     private Button btnLogin;
     private TextView tvRegister;
@@ -31,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         preferencesManager = new PreferencesManager(this);
+        
+        Log.d(TAG, "onCreate: token = " + preferencesManager.getToken());
         
         initViews();
         setupListeners();
@@ -75,14 +79,17 @@ public class LoginActivity extends AppCompatActivity {
                     
                     if (loginResponse.getToken() != null) {
                         // 登录成功
+                        Log.d(TAG, "登录成功，token = " + loginResponse.getToken());
                         preferencesManager.saveAuthToken(loginResponse.getToken(), loginResponse.getUserId());
                         Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                         finish();
                     } else {
                         // 登录失败
+                        Log.d(TAG, "登录失败: " + loginResponse.getError());
                         Toast.makeText(LoginActivity.this, "登录失败: " + loginResponse.getError(), Toast.LENGTH_LONG).show();
                     }
                 } else {
+                    Log.d(TAG, "登录失败，请检查用户名和密码");
                     Toast.makeText(LoginActivity.this, "登录失败，请检查用户名和密码", Toast.LENGTH_LONG).show();
                 }
             }
@@ -90,6 +97,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
                 btnLogin.setEnabled(true);
+                Log.e(TAG, "网络错误", t);
                 Toast.makeText(LoginActivity.this, "网络错误: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });

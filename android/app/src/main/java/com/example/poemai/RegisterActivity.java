@@ -2,6 +2,7 @@ package com.example.poemai;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
+    private static final String TAG = "RegisterActivity";
     private EditText etUsername, etPassword, etConfirmPassword;
     private Button btnRegister;
     private TextView tvLogin;
@@ -30,6 +32,8 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         preferencesManager = new PreferencesManager(this);
+        
+        Log.d(TAG, "onCreate: token = " + preferencesManager.getToken());
         
         initViews();
         setupListeners();
@@ -82,14 +86,17 @@ public class RegisterActivity extends AppCompatActivity {
                         
                         if (registerResponse.getToken() != null) {
                             // 注册成功
+                            Log.d(TAG, "注册成功，token = " + registerResponse.getToken());
                             preferencesManager.saveAuthToken(registerResponse.getToken(), registerResponse.getUserId());
                             Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
                             finish();
                         } else {
                             // 注册失败
+                            Log.d(TAG, "注册失败: " + registerResponse.getError());
                             Toast.makeText(RegisterActivity.this, "注册失败: " + registerResponse.getError(), Toast.LENGTH_LONG).show();
                         }
                     } else {
+                        Log.d(TAG, "注册失败，请稍后重试");
                         Toast.makeText(RegisterActivity.this, "注册失败，请稍后重试", Toast.LENGTH_LONG).show();
                     }
                 }
@@ -97,11 +104,13 @@ public class RegisterActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<LoginResponse> call, Throwable t) {
                     btnRegister.setEnabled(true);
+                    Log.e(TAG, "网络错误", t);
                     Toast.makeText(RegisterActivity.this, "网络错误: " + t.getMessage(), Toast.LENGTH_LONG).show();
                 }
             });
         } catch (Exception e) {
             btnRegister.setEnabled(true);
+            Log.e(TAG, "注册过程出现错误", e);
             Toast.makeText(this, "注册过程出现错误: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }

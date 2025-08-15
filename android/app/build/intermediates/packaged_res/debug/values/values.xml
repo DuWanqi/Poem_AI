@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="accent">#FF03DAC5</color>
     <color name="black">#FF000000</color>
-    <color name="classical_accent">#8B0000</color>
-    <color name="classical_background">#F5F0E1</color>
-    <color name="classical_primary">#8B4513</color>
-    <color name="classical_secondary">#556B2F</color>
-    <color name="classical_text">#2F4F4F</color>
-    <color name="mountain_distant">#4A6B48</color>
-    <color name="mountain_middle">#3A5F3A</color>
-    <color name="mountain_near">#2D4F2D</color>
-    <color name="primary">#FF6200EE</color>
-    <color name="primary_dark">#FF3700B3</color>
+    <color name="classical_accent">#9C4A1A</color>
+    <color name="classical_background">#F5F5DC</color>
+    <color name="classical_primary">#3B8D6F</color>
+    <color name="classical_secondary">#D4A345</color>
+    <color name="classical_text">#3D3D3D</color>
+    <color name="dark_red">#8B0000</color>
+    <color name="gold">#FFD700</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="water_reflection">#33556B2F</color>
     <color name="white">#FFFFFFFF</color>
     <string name="api_key">API密钥</string>
     <string name="app_name">诗词AI</string>
     <string name="btn_back">返回</string>
     <string name="btn_recommended">词牌推荐</string>
     <string name="cancel">取消</string>
+    <string name="close">关闭</string>
     <string name="complete_poem">补全诗词</string>
     <string name="compose_poem">创作诗词</string>
     <string name="confirm_password">确认密码</string>
@@ -32,7 +28,9 @@
     <string name="delete">删除</string>
     <string name="edit">编辑</string>
     <string name="enter_text">请输入文本内容</string>
+    <string name="horizontal">横排</string>
     <string name="login">登录</string>
+    <string name="logout">退出登录</string>
     <string name="my_works">我的作品</string>
     <string name="password">密码</string>
     <string name="prompt">提示词</string>
@@ -42,8 +40,10 @@
     <string name="save">保存</string>
     <string name="save_api_key">保存API密钥</string>
     <string name="search_rhyme">查询押韵字</string>
+    <string name="select_direction">选择排列方向</string>
     <string name="title">标题</string>
     <string name="username">用户名</string>
+    <string name="vertical">竖排</string>
     <string name="welcome">欢迎使用诗词AI</string>
     <string name="your_content">您的内容：</string>
     <style name="CalligraphyTextStyle" parent="TextAppearance.AppCompat">
@@ -58,8 +58,8 @@
     </style>
     <style name="Theme.PoemAI" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         
         <item name="colorSecondary">@color/teal_200</item>

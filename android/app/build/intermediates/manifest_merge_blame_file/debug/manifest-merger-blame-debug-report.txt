@@ -6,14 +6,14 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-9        android:targetSdkVersion="30" />
+9        android:targetSdkVersion="34" />
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
 11-->D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:4:5-67
 11-->D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:4:22-64
 12
 13    <application
-13-->D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:5:5-47:19
+13-->D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:5:5-51:19
 14        android:name="com.example.poemai.MyApplication"
 14-->D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:6:9-38
 15        android:allowBackup="true"
@@ -102,6 +102,14 @@
 59        <activity android:name="com.example.poemai.PoemComposeActivity" />
 59-->D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:46:9-57
 59-->D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:46:19-54
-60    </application>
-61
-62</manifest>
+60        <activity
+60-->D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:47:9-50:61
+61            android:name="com.example.poemai.CardGenerateActivity"
+61-->D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:48:13-49
+62            android:exported="false"
+62-->D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:49:13-37
+63            android:theme="@style/Theme.PoemAI.Classical" />
+63-->D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:50:13-58
+64    </application>
+65
+66</manifest>

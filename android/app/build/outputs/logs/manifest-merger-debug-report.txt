@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:2:1-49:12
+ADDED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:2:1-53:12
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\2022\.gradle\caches\transforms-3\812580fd56c6569234eaa07e3116f6c6\transformed\material-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\2022\.gradle\caches\transforms-3\2e0d0f605027c46ac62c6d50fa60c9be\transformed\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\2022\.gradle\caches\transforms-3\97f43086dbd253d3e8d9b1f8f32a59eb\transformed\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
@@ -51,8 +51,8 @@ ADDED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:4:5-67
 	android:name
 		ADDED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:5:5-47:19
-INJECTED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:5:5-47:19
+ADDED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:5:5-51:19
+INJECTED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:5:5-51:19
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\2022\.gradle\caches\transforms-3\812580fd56c6569234eaa07e3116f6c6\transformed\material-1.3.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\2022\.gradle\caches\transforms-3\812580fd56c6569234eaa07e3116f6c6\transformed\material-1.3.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\2022\.gradle\caches\transforms-3\2e0d0f605027c46ac62c6d50fa60c9be\transformed\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -147,6 +147,14 @@ activity#com.example.poemai.PoemComposeActivity
 ADDED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:46:9-57
 	android:name
 		ADDED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:46:19-54
+activity#com.example.poemai.CardGenerateActivity
+ADDED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:47:9-50:61
+	android:exported
+		ADDED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:49:13-37
+	android:theme
+		ADDED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:50:13-58
+	android:name
+		ADDED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:48:13-49
 uses-sdk
 INJECTED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml

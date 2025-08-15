@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.poemai.model.ApiResponse;
 import com.example.poemai.utils.PreferencesManager;
 import com.example.poemai.network.RetrofitClient;
 
@@ -62,13 +63,13 @@ public class GalleryActivity extends AppCompatActivity {
         }
 
         // 调用 API 获取作品列表
-        Call<List<Map<String, Object>>> call = RetrofitClient.getInstance().getApiService().getAllWorks("Bearer " + token);
-        call.enqueue(new Callback<List<Map<String, Object>>>() {
+        Call<ApiResponse> call = RetrofitClient.getInstance().getApiService().getAllWorks("Bearer " + token);
+        call.enqueue(new Callback<ApiResponse>() {
             @Override
-            public void onResponse(Call<List<Map<String, Object>>> call, Response<List<Map<String, Object>>> response) {
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     worksList.clear();
-                    worksList.addAll(response.body());
+                    worksList.addAll(response.body().getData());
                     workAdapter.notifyDataSetChanged();
                 } else {
                     Toast.makeText(GalleryActivity.this, "加载作品列表失败: " + response.message(), Toast.LENGTH_SHORT).show();
@@ -76,7 +77,7 @@ public class GalleryActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Map<String, Object>>> call, Throwable t) {
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
                 Toast.makeText(GalleryActivity.this, "网络错误: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });

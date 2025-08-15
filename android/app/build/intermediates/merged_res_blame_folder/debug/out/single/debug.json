@@ -1,114 +1,158 @@
 [
     {
-        "merged": "com.example.poemai.app-merged_res-14:/xml_network_security_config.xml.flat",
-        "source": "com.example.poemai.app-main-16:/xml/network_security_config.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\anim_fade_in.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\anim\\fade_in.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_activity_work_display.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/activity_work_display.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\drawable_calligraphy_text.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\drawable\\calligraphy_text.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_activity_main.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/activity_main.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_activity_poem_compose.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\activity_poem_compose.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_dialog_api_key.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/dialog_api_key.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\menu_main_menu.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\menu\\main_menu.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_item_cipai.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/item_cipai.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\drawable_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\drawable\\ic_launcher_round.png"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/anim_fade_in.xml.flat",
-        "source": "com.example.poemai.app-main-16:/anim/fade_in.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\drawable_blank_background.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\drawable\\blank_background.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_activity_card_create.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/activity_card_create.xml"
+        "merged": "com.example.poemai.app-merged_res-14:/raw_api_guide.txt.flat",
+        "source": "com.example.poemai.app-main-16:/raw/api_guide.txt"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/drawable_ic_launcher_round.png.flat",
-        "source": "com.example.poemai.app-main-16:/drawable/ic_launcher_round.png"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_activity_launch.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\activity_launch.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_activity_login.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/activity_login.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_activity_gallery.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\activity_gallery.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_activity_gallery.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/activity_gallery.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_activity_card_create.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\activity_card_create.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_activity_card_generate.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/activity_card_generate.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\raw_certificate.crt.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\raw\\certificate.crt"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_activity_launch.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/activity_launch.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\drawable_elegant_background.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\drawable\\elegant_background.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_activity_cipai_recommend.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/activity_cipai_recommend.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\drawable_dark_solid_background.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\drawable\\dark_solid_background.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_dialog_background_select.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/dialog_background_select.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\drawable_ic_logout.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\drawable\\ic_logout.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_dialog_ai_completion.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/dialog_ai_completion.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_activity_cipai_recommend.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\activity_cipai_recommend.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/xml_backup_rules.xml.flat",
-        "source": "com.example.poemai.app-main-16:/xml/backup_rules.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\activity_login.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_dialog_share.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/dialog_share.xml"
+        "merged": "com.example.poemai.app-merged_res-14:/layout_dialog_api_guide.xml.flat",
+        "source": "com.example.poemai.app-main-16:/layout/dialog_api_guide.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/drawable_ic_launcher.png.flat",
-        "source": "com.example.poemai.app-main-16:/drawable/ic_launcher.png"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_dialog_background_select.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\dialog_background_select.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_activity_poem_display.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/activity_poem_display.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_dialog_direction_select.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\dialog_direction_select.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/raw_certificate.crt.flat",
-        "source": "com.example.poemai.app-main-16:/raw/certificate.crt"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_activity_work_display.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\activity_work_display.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/drawable_calligraphy_text.xml.flat",
-        "source": "com.example.poemai.app-main-16:/drawable/calligraphy_text.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/anim_slide_in.xml.flat",
-        "source": "com.example.poemai.app-main-16:/anim/slide_in.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_item_cipai.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\item_cipai.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/drawable_mountain_background.xml.flat",
-        "source": "com.example.poemai.app-main-16:/drawable/mountain_background.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_dialog_settings.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\dialog_settings.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_dialog_settings.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/dialog_settings.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_dialog_api_key.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\dialog_api_key.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_dialog_rhyme.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/dialog_rhyme.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\drawable_heroic_background.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\drawable\\heroic_background.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_activity_register.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/activity_register.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_activity_register.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\activity_register.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_activity_poem_compose.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/activity_poem_compose.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_dialog_ai_completion.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\dialog_ai_completion.xml"
     },
     {
-        "merged": "com.example.poemai.app-merged_res-14:/layout_item_work.xml.flat",
-        "source": "com.example.poemai.app-main-16:/layout/item_work.xml"
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\xml_network_security_config.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\xml\\network_security_config.xml"
+    },
+    {
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\drawable_mountain_background.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\drawable\\mountain_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_dialog_share.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\dialog_share.xml"
+    },
+    {
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_dialog_font_select.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\dialog_font_select.xml"
+    },
+    {
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_dialog_rhyme.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\dialog_rhyme.xml"
+    },
+    {
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\drawable_red_solid_background.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\drawable\\red_solid_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_activity_card_generate.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\activity_card_generate.xml"
+    },
+    {
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\anim_slide_in.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\anim\\slide_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_item_work.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\item_work.xml"
+    },
+    {
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\layout_activity_poem_display.xml.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\layout\\activity_poem_display.xml"
+    },
+    {
+        "merged": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-merged_res-14:\\drawable_ic_launcher.png.flat",
+        "source": "C:\\Users\\2022\\.gradle\\daemon\\8.2\\com.example.poemai.app-main-16:\\drawable\\ic_launcher.png"
     }
 ]

@@ -2,6 +2,7 @@ package com.example.poemai;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.poemai.utils.PreferencesManager;
 
 public class LaunchActivity extends AppCompatActivity {
+    private static final String TAG = "LaunchActivity";
     private Button btnLogin, btnRegister;
     private TextView tvAppName;
 
@@ -22,18 +24,42 @@ public class LaunchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_launch);
         
         PreferencesManager preferencesManager = new PreferencesManager(this);
+        String token = preferencesManager.getToken();
+        
+        // 添加调试日志
+        Log.d(TAG, "onCreate: token = " + token);
         
         // 检查用户是否已经登录
-        if (preferencesManager.getToken() != null) {
+        if (token != null) {
             // 用户已登录，直接跳转到主页面
+            Log.d(TAG, "onCreate: 用户已登录，跳转到主页面");
             startActivity(new Intent(LaunchActivity.this, MainActivity.class));
             finish();
             return;
         }
         
+        Log.d(TAG, "onCreate: 用户未登录，显示登录界面");
         initViews();
         setupListeners();
         setupAnimations();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // 每次返回LaunchActivity时都检查登录状态
+        PreferencesManager preferencesManager = new PreferencesManager(this);
+        String token = preferencesManager.getToken();
+        
+        // 添加调试日志
+        Log.d(TAG, "onResume: token = " + token);
+        
+        if (token != null) {
+            // 用户已登录，直接跳转到主页面
+            Log.d(TAG, "onResume: 用户已登录，跳转到主页面");
+            startActivity(new Intent(LaunchActivity.this, MainActivity.class));
+            finish();
+        }
     }
 
     private void initViews() {

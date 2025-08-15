@@ -44,6 +44,10 @@
             android:name=".WorkDisplayActivity"
             android:theme="@style/Theme.PoemAI.Classical" />
         <activity android:name=".PoemComposeActivity" />
+        <activity
+            android:name=".CardGenerateActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PoemAI.Classical" />
     </application>
 
 </manifest>

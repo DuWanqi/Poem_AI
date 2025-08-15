@@ -17,6 +17,16 @@
         android:layout_alignParentTop="true"
         android:layout_marginBottom="16dp">
 
+        <!-- 添加返回按钮 -->
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@android:drawable/ic_menu_revert"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/classical_text"
+            android:contentDescription="@string/btn_back" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -49,18 +59,28 @@
         app:boxStrokeColor="@color/classical_primary"
         app:boxStrokeWidthFocused="2dp">
 
-        <EditText
+        <com.example.poemai.VerticalTextView
             android:id="@+id/etCardContent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/enter_text"
             android:gravity="top"
-            android:inputType="textMultiLine"
+            android:inputType="textMultiLine|textCapSentences"
             android:scrollbars="vertical"
             android:textColor="@color/classical_text"
             android:textColorHint="@color/classical_text"
+            android:background="@color/white"
             android:alpha="0.7"
-            android:importantForAutofill="auto"
+            android:padding="12dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:clickable="true"
+            android:enabled="true"
+            android:selectAllOnFocus="false"
+            android:imeOptions="actionNone"
+            android:cursorVisible="true"
+            android:textIsSelectable="true"
+            android:importantForAutofill="yes"
             android:autofillHints="content" />
 
     </com.google.android.material.textfield.TextInputLayout>

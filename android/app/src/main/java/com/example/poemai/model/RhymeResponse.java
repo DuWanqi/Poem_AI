@@ -4,27 +4,40 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class RhymeResponse {
-    @SerializedName("rhymeGroup")
-    private String rhymeGroup;
-    
-    private List<String> words;
+    private int code;
     private String message;
-    private String error;
+    
+    // 实际数据在data字段中
+    private Data data;
+    
+    public static class Data {
+        @SerializedName("rhymeGroup")
+        private String rhymeGroup;
+        private List<String> words;
 
-    public String getRhymeGroup() {
-        return rhymeGroup;
+        public String getRhymeGroup() {
+            return rhymeGroup;
+        }
+
+        public void setRhymeGroup(String rhymeGroup) {
+            this.rhymeGroup = rhymeGroup;
+        }
+
+        public List<String> getWords() {
+            return words;
+        }
+
+        public void setWords(List<String> words) {
+            this.words = words;
+        }
     }
 
-    public void setRhymeGroup(String rhymeGroup) {
-        this.rhymeGroup = rhymeGroup;
+    public int getCode() {
+        return code;
     }
 
-    public List<String> getWords() {
-        return words;
-    }
-
-    public void setWords(List<String> words) {
-        this.words = words;
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public String getMessage() {
@@ -35,11 +48,20 @@ public class RhymeResponse {
         this.message = message;
     }
 
-    public String getError() {
-        return error;
+    public Data getData() {
+        return data;
     }
 
-    public void setError(String error) {
-        this.error = error;
+    public void setData(Data data) {
+        this.data = data;
+    }
+    
+    // 为了兼容现有代码，提供直接访问words和rhymeGroup的方法
+    public List<String> getWords() {
+        return data != null ? data.getWords() : null;
+    }
+    
+    public String getRhymeGroup() {
+        return data != null ? data.getRhymeGroup() : null;
     }
 }

@@ -7,19 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="primary">#FF6200EE</color>
-    <color name="primary_dark">#FF3700B3</color>
-    <color name="accent">#FF03DAC5</color>
+
     <!-- 古典风格颜色 -->
-    <color name="classical_background">#F5F0E1</color> <!-- 米黄色背景 -->
-    <color name="classical_primary">#8B4513</color> <!-- 深棕色主色 -->
-    <color name="classical_secondary">#556B2F</color> <!-- 暗橄榄绿 -->
-    <color name="classical_accent">#8B0000</color> <!-- 暗红色 -->
-    <color name="classical_text">#2F4F4F</color> <!-- 暗绿灰色文字 -->
+    <color name="classical_background">#F5F5DC</color> <!-- 米黄色背景 -->
+    <color name="classical_text">#3D3D3D</color>       <!-- 深褐色文字 -->
+    <color name="classical_primary">#3B8D6F</color>    <!-- 深红色主色调 -->
+    <color name="classical_secondary">#D4A345</color>  <!-- 次要颜色 -->
+    <color name="classical_accent">#9C4A1A</color>     <!-- 强调色 -->
     
-    <!-- 千里江山图配色 -->
-    <color name="mountain_distant">#4A6B48</color> <!-- 远山青绿色 -->
-    <color name="mountain_middle">#3A5F3A</color> <!-- 中景深绿色 -->
-    <color name="mountain_near">#2D4F2D</color> <!-- 近景墨绿色 -->
-    <color name="water_reflection">#33556B2F</color> <!-- 水面倒影 -->
+    <!-- 新增颜色 -->
+    <color name="gold">#FFD700</color>                 <!-- 金色 -->
+    <color name="dark_red">#8B0000</color>             <!-- 深红色 -->
 </resources>

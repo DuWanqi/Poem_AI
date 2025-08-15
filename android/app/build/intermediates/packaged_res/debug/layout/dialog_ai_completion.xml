@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
     android:background="@color/classical_background">
@@ -72,7 +72,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:background="@android:drawable/edit_text"
         android:padding="12dp"
         android:layout_marginBottom="16dp">
@@ -83,35 +84,12 @@
             android:layout_height="wrap_content"
             android:text="AI补全结果将在此显示"
             android:textColor="@color/classical_text"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textIsSelectable="true"
+            android:enabled="true"
+            android:focusable="true"
+            android:longClickable="true" />
     </ScrollView>
-
-    <!-- 操作按钮 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnRegenerate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="重新生成"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/classical_secondary"
-            android:layout_marginEnd="8dp" />
-
-        <Button
-            android:id="@+id/btnApply"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="一键补全"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/classical_primary"
-            android:layout_marginStart="8dp" />
-    </LinearLayout>
 
     <!-- 关闭按钮 -->
     <Button

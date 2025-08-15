@@ -9,75 +9,184 @@
     android:background="@color/classical_background"
     tools:context=".PoemComposeActivity">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="创作诗词"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/classical_text"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="24dp" />
-
-    <!-- 卡片内容区域，占据主要位置 -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginBottom="16dp"
-        android:background="@android:drawable/edit_text"
-        android:padding="12dp">
+        android:layout_marginBottom="24dp">
 
         <TextView
-            android:id="@+id/tvCardContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="@color/classical_text"
-            android:minHeight="200dp" />
-    </ScrollView>
+            android:text="创作诗词"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/classical_text" />
 
-    <!-- 诗词模板区域 -->
+        <!-- 返回按钮 -->
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="返回"
+            android:src="@android:drawable/ic_menu_revert"
+            android:tint="@color/classical_text" />
+
+    </RelativeLayout>
+
+    <!-- 诗词创作区域，占据更大位置 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@color/white"
+        android:padding="12dp"
+        android:elevation="4dp">
+
+        <!-- 横排模式下的布局 -->
+        <LinearLayout
+            android:id="@+id/layoutHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <!-- 标题输入 -->
+            <EditText
+                android:id="@+id/etTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="作品标题"
+                android:textColor="@color/classical_text"
+                android:textColorHint="@color/classical_text"
+                android:background="@android:color/transparent"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- 作者输入 -->
+            <EditText
+                android:id="@+id/etAuthor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="作者"
+                android:textColor="@color/classical_text"
+                android:textColorHint="@color/classical_text"
+                android:background="@android:color/transparent"
+                android:layout_marginBottom="16dp"
+                android:textSize="16sp" />
+
+            <!-- 诗词内容编辑区域 -->
+            <com.example.poemai.VerticalTextView
+                android:id="@+id/etPoemContent"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="top|start"
+                android:inputType="textMultiLine|textNoSuggestions"
+                android:padding="8dp"
+                android:scrollbars="vertical"
+                android:textColor="@color/classical_text"
+                android:textColorHint="@color/classical_text"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- 竖排模式下的布局 -->
+        <LinearLayout
+            android:id="@+id/layoutVertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <!-- 诗词内容编辑区域 -->
+            <com.example.poemai.VerticalTextView
+                android:id="@+id/etPoemContentVertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="top|start"
+                android:inputType="textMultiLine|textNoSuggestions"
+                android:padding="8dp"
+                android:scrollbars="vertical"
+                android:textColor="@color/classical_text"
+                android:textColorHint="@color/classical_text"
+                android:textSize="16sp" />
+
+            <!-- 标题和作者区域 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <!-- 作者 -->
+                <com.example.poemai.VerticalTextView
+                    android:id="@+id/etAuthorVertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="top|center_horizontal"
+                    android:inputType="textMultiLine|textNoSuggestions"
+                    android:padding="8dp"
+                    android:textColor="@color/classical_text"
+                    android:textColorHint="@color/classical_text"
+                    android:textSize="16sp"
+                    android:hint="作者" />
+
+                <!-- 标题 -->
+                <com.example.poemai.VerticalTextView
+                    android:id="@+id/etTitleVertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="top|center_horizontal"
+                    android:inputType="textMultiLine|textNoSuggestions"
+                    android:padding="8dp"
+                    android:textColor="@color/classical_text"
+                    android:textColorHint="@color/classical_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:hint="作品标题" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 词牌示例区域 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
         android:layout_marginBottom="16dp"
-        android:background="@android:drawable/edit_text"
-        android:padding="12dp">
+        android:background="@color/white"
+        android:padding="12dp"
+        android:elevation="4dp">
 
-        <!-- 标题输入 -->
-        <EditText
-            android:id="@+id/etTitle"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="作品标题"
+            android:text="词牌示例"
+            android:textSize="18sp"
+            android:textStyle="bold"
             android:textColor="@color/classical_text"
-            android:textColorHint="@color/classical_text"
-            android:background="@android:color/transparent"
             android:layout_marginBottom="8dp" />
 
-        <!-- 作者输入 -->
-        <EditText
-            android:id="@+id/etAuthor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="作者"
-            android:textColor="@color/classical_text"
-            android:textColorHint="@color/classical_text"
-            android:background="@android:color/transparent"
-            android:layout_marginBottom="16dp" />
-
-        <!-- 诗词内容模板 -->
+        <!-- 词牌示例内容 -->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/tvPoemTemplate"
+                android:id="@+id/tvCiPaiExample"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
@@ -91,7 +200,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:background="@color/classical_primary">
 
         <!-- 推荐韵脚按钮 -->
         <ImageButton
@@ -102,7 +212,8 @@
             android:src="@android:drawable/ic_menu_sort_by_size"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="推荐韵脚"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:tint="@color/white" />
 
         <!-- 分享按钮 -->
         <ImageButton
@@ -113,7 +224,8 @@
             android:src="@android:drawable/ic_menu_share"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="分享"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:tint="@color/white" />
 
         <!-- 设置按钮 -->
         <ImageButton
@@ -124,7 +236,8 @@
             android:src="@android:drawable/ic_menu_manage"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="设置"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:tint="@color/white" />
 
         <!-- 灵感按钮 -->
         <ImageButton
@@ -135,7 +248,8 @@
             android:src="@android:drawable/ic_menu_help"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="灵感"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:tint="@color/white" />
     </LinearLayout>
 
 </LinearLayout>
