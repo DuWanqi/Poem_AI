@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 背景颜色 -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#F5F5DC" /> <!-- 米黄色背景 -->
+        </shape>
+    </item>
+    
+    <!-- 梅花装饰 -->
+    <item 
+        android:top="20dp"
+        android:right="20dp"
+        android:width="60dp"
+        android:height="60dp">
+        <vector
+            android:width="60dp"
+            android:height="60dp"
+            android:viewportWidth="60"
+            android:viewportHeight="60">
+            <path
+                android:fillColor="#8B0000"
+                android:pathData="M30,10 Q35,15 30,20 Q25,15 30,10 Z" />
+            <path
+                android:fillColor="#8B0000"
+                android:pathData="M30,10 Q35,5 40,10 Q35,15 30,10 Z" />
+            <path
+                android:fillColor="#8B0000"
+                android:pathData="M40,10 Q45,15 40,20 Q35,15 40,10 Z" />
+            <path
+                android:fillColor="#8B0000"
+                android:pathData="M40,20 Q45,25 40,30 Q35,25 40,20 Z" />
+            <path
+                android:fillColor="#8B0000"
+                android:pathData="M30,20 Q35,25 30,30 Q25,25 30,20 Z" />
+            <path
+                android:fillColor="#8B0000"
+                android:pathData="M20,10 Q25,15 20,20 Q15,15 20,10 Z" />
+            <path
+                android:fillColor="#8B0000"
+                android:pathData="M20,20 Q25,25 20,30 Q15,25 20,20 Z" />
+            <path
+                android:fillColor="#8B0000"
+                android:pathData="M30,30 L30,50" 
+                android:strokeWidth="2"
+                android:strokeColor="#8B0000" />
+        </vector>
+    </item>
+    
+    <!-- 折扇装饰 -->
+    <item 
+        android:bottom="20dp"
+        android:left="20dp"
+        android:width="80dp"
+        android:height="80dp">
+        <vector
+            android:width="80dp"
+            android:height="80dp"
+            android:viewportWidth="80"
+            android:viewportHeight="80">
+            <path
+                android:fillColor="#D4A345"
+                android:pathData="M40,10 L45,20 L40,30 L35,20 Z" />
+            <path
+                android:fillColor="#D4A345"
+                android:pathData="M40,30 L45,40 L40,50 L35,40 Z" />
+            <path
+                android:fillColor="#D4A345"
+                android:pathData="M40,50 L45,60 L40,70 L35,60 Z" />
+            <path
+                android:strokeWidth="2"
+                android:strokeColor="#3B8D6F"
+                android:pathData="M40,10 L40,70" />
+        </vector>
+    </item>
+</layer-list>
