@@ -1,8 +1,20 @@
 package com.example.poemai;
 
+import android.Manifest;
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -18,13 +30,24 @@ import android.widget.ScrollView;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
-import com.google.gson.JsonParser;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
+import java.io.InputStream;
+import java.io.FileNotFoundException;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+import com.example.poemai.model.RhymeResponse;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.app.ActivityCompat;
 
+import com.example.poemai.service.BackendService;
 import com.example.poemai.utils.PreferencesManager;
 import com.example.poemai.model.CiPai;
 import com.example.poemai.model.WorkSaveResponse;
@@ -54,7 +77,16 @@ import retrofit2.Response;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 public class PoemComposeActivity extends AppCompatActivity {
+    private static final int REQUEST_CODE_READ_EXTERNAL_STORAGE = 1001;
+    private static final int REQUEST_CODE_PICK_IMAGE = 1002;
+    private static final int REQUEST_CODE_WRITE_EXTERNAL_STORAGE = 1003;
+    
     private static final String PREFS_NAME = "PoemComposeSettings";
     private static final String FONT_SIZE_KEY = "font_size";
     private static final String TEXT_COLOR_KEY = "text_color";
@@ -69,7 +101,7 @@ public class PoemComposeActivity extends AppCompatActivity {
     private VerticalTextView etPoemContentVertical, etTitleVertical, etAuthorVertical;
     
     private TextView tvCiPaiExample;
-    private ImageButton btnRhyme, btnShare, btnSettings, btnInspiration, btnBack;
+    private ImageButton btnRhyme, btnShare, btnSettings, btnInspiration, btnBack, btnHome;
     private LinearLayout layoutHorizontal, layoutVertical;
     private PreferencesManager preferencesManager;
     private CiPai selectedCiPai;
@@ -92,6 +124,9 @@ public class PoemComposeActivity extends AppCompatActivity {
         preferencesManager = new PreferencesManager(this);
         settingsPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         
+        // 清理旧的背景图片（保留当前使用的）
+        cleanupOldBackgrounds();
+        
         // 加载保存的设置
         loadSettings();
         
@@ -106,6 +141,69 @@ public class PoemComposeActivity extends AppCompatActivity {
         currentTextColor = settingsPrefs.getInt(TEXT_COLOR_KEY, R.color.classical_text);
         currentTextDirection = settingsPrefs.getInt(TEXT_DIRECTION_KEY, 0);
         currentFontFamily = settingsPrefs.getInt(FONT_FAMILY_KEY, 0);
+    }
+    
+    /**
+     * 清理旧的背景图片（保留当前使用的）
+     * 如果当前背景不是自定义图片，则清理所有自定义背景图片
+     */
+    private void cleanupOldBackgrounds() {
+        try {
+            String currentBackground = settingsPrefs.getString("selected_background", "blank");
+            String currentBackgroundPath = settingsPrefs.getString("custom_background_path", "");
+            
+            // 如果当前背景不是自定义图片，则清理所有自定义背景图片
+            if (!"custom_image".equals(currentBackground)) {
+                File backgroundsDir = new File(getFilesDir(), "backgrounds");
+                if (backgroundsDir.exists() && backgroundsDir.isDirectory()) {
+                    File[] files = backgroundsDir.listFiles();
+                    if (files != null) {
+                        for (File file : files) {
+                            file.delete();
+                        }
+                    }
+                }
+                
+                // 清理SharedPreferences中的自定义背景记录
+                SharedPreferences.Editor editor = settingsPrefs.edit();
+                editor.remove("custom_background_path");
+                editor.remove("custom_background_uri");
+                editor.apply();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void cleanupCustomBackground() {
+        try {
+            String customBackgroundPath = settingsPrefs.getString("custom_background_path", "");
+            if (!customBackgroundPath.isEmpty()) {
+                File imageFile = new File(customBackgroundPath);
+                if (imageFile.exists()) {
+                    imageFile.delete();
+                }
+                
+                // 清理SharedPreferences中的自定义背景记录
+                SharedPreferences.Editor editor = settingsPrefs.edit();
+                editor.remove("custom_background_path");
+                editor.remove("custom_background_uri");
+                editor.apply();
+            }
+            
+            // 清理背景图片目录中的所有文件
+            File backgroundsDir = new File(getFilesDir(), "backgrounds");
+            if (backgroundsDir.exists() && backgroundsDir.isDirectory()) {
+                File[] files = backgroundsDir.listFiles();
+                if (files != null) {
+                    for (File file : files) {
+                        file.delete();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     private void saveSettings() {
@@ -224,6 +322,7 @@ public class PoemComposeActivity extends AppCompatActivity {
         btnSettings = findViewById(R.id.btnSettings);
         btnInspiration = findViewById(R.id.btnInspiration);
         btnBack = findViewById(R.id.btnBack);
+        btnHome = findViewById(R.id.btnHome);
     }
 
     private void loadCardContent() {
@@ -249,6 +348,13 @@ public class PoemComposeActivity extends AppCompatActivity {
         btnSettings.setOnClickListener(v -> showSettingsDialog());
         btnInspiration.setOnClickListener(v -> showInspirationDialog());
         btnBack.setOnClickListener(v -> finish()); // 添加返回按钮点击事件
+        btnHome.setOnClickListener(v -> {
+            // 跳转到主页面
+            Intent intent = new Intent(PoemComposeActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
+        }); // 添加Home按钮点击事件
         
         // 添加文本变化监听器以同步横竖排内容
         etPoemContent.addTextChangedListener(new TextWatcher() {
@@ -330,36 +436,39 @@ public class PoemComposeActivity extends AppCompatActivity {
     }
 
     private void searchRhymeWords(String query, TextView tvRhymeResults) {
-        Call<RhymeResponse> call = RetrofitClient.getInstance().getApiService().getRhymeWords(query);
-        call.enqueue(new Callback<RhymeResponse>() {
-            @Override
-            public void onResponse(Call<RhymeResponse> call, retrofit2.Response<RhymeResponse> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    RhymeResponse rhymeResponse = response.body();
-                    if (rhymeResponse.getWords() != null && !rhymeResponse.getWords().isEmpty()) {
-                        StringBuilder result = new StringBuilder();
-                        result.append("韵脚字（韵母组: ").append(rhymeResponse.getRhymeGroup()).append("）:\n\n");
-                        for (String word : rhymeResponse.getWords()) {
-                            result.append(word).append("  ");
-                        }
-                        tvRhymeResults.setText(result.toString());
-                    } else {
-                        tvRhymeResults.setText("未找到相关韵脚字");
-                    }
-                } else {
-                    try {
-                        tvRhymeResults.setText("查询失败: " + response.errorBody().string());
-                    } catch (Exception e) {
-                        tvRhymeResults.setText("查询失败: " + response.message());
-                    }
+        // 使用本地BackendService进行押韵查询
+        BackendService backendService = BackendService.getInstance(this);
+        BackendService.Result<Map<String, Object>> result = backendService.getRhymeInfoByChar(query);
+        
+        if (result.getCode() == 200 && result.getData() != null) {
+            Map<String, Object> data = result.getData();
+            String rhymeGroup = (String) data.get("rhymeGroup");
+            Object wordsObj = data.get("words");
+            
+            // 正确处理从BackendService返回的押韵字列表
+            List<String> words = new ArrayList<>();
+            if (wordsObj instanceof List) {
+                // 如果是List类型，直接转换
+                words = (List<String>) wordsObj;
+            } else if (wordsObj instanceof String[]) {
+                // 如果是String[]类型，转换为List
+                String[] wordsArray = (String[]) wordsObj;
+                words = Arrays.asList(wordsArray);
+            }
+            
+            if (words != null && !words.isEmpty()) {
+                StringBuilder resultText = new StringBuilder();
+                resultText.append("韵脚字（韵母组: ").append(rhymeGroup).append("）:\n\n");
+                for (String word : words) {
+                    resultText.append(word).append("  ");
                 }
+                tvRhymeResults.setText(resultText.toString());
+            } else {
+                tvRhymeResults.setText("未找到相关韵脚字");
             }
-
-            @Override
-            public void onFailure(Call<RhymeResponse> call, Throwable t) {
-                tvRhymeResults.setText("网络错误: " + t.getMessage());
-            }
-        });
+        } else {
+            tvRhymeResults.setText("查询失败: " + result.getMessage());
+        }
     }
 
     private void showShareDialog() {
@@ -392,12 +501,6 @@ public class PoemComposeActivity extends AppCompatActivity {
         // 根据保存的背景设置预览背景
         String selectedBackground = settingsPrefs.getString("selected_background", "blank");
         switch (selectedBackground) {
-            case "elegant":
-                tvSharePreview.setBackgroundResource(R.drawable.elegant_background);
-                break;
-            case "heroic":
-                tvSharePreview.setBackgroundResource(R.drawable.heroic_background);
-                break;
             case "blank":
                 tvSharePreview.setBackgroundResource(R.drawable.blank_background);
                 break;
@@ -406,6 +509,34 @@ public class PoemComposeActivity extends AppCompatActivity {
                 break;
             case "dark_solid":
                 tvSharePreview.setBackgroundResource(R.drawable.dark_solid_background);
+                break;
+            case "custom_image":
+                String customBackgroundPath = settingsPrefs.getString("custom_background_path", "");
+                if (!customBackgroundPath.isEmpty()) {
+                    try {
+                        File imageFile = new File(customBackgroundPath);
+                        if (imageFile.exists()) {
+                            Bitmap bitmap = BitmapFactory.decodeFile(customBackgroundPath);
+                            if (bitmap != null) {
+                                Drawable drawable = new BitmapDrawable(getResources(), bitmap);
+                                tvSharePreview.setBackground(drawable);
+                            } else {
+                                tvSharePreview.setBackgroundResource(R.drawable.blank_background);
+                            }
+                        } else {
+                            // 文件不存在，清理SharedPreferences中的记录
+                            SharedPreferences.Editor editor = settingsPrefs.edit();
+                            editor.remove("selected_background");
+                            editor.remove("custom_background_path");
+                            editor.apply();
+                            tvSharePreview.setBackgroundResource(R.drawable.blank_background);
+                        }
+                    } catch (Exception e) {
+                        tvSharePreview.setBackgroundResource(R.drawable.blank_background);
+                    }
+                } else {
+                    tvSharePreview.setBackgroundResource(R.drawable.blank_background);
+                }
                 break;
         }
         
@@ -416,7 +547,49 @@ public class PoemComposeActivity extends AppCompatActivity {
         });
         
         btnSaveToLocal.setOnClickListener(v -> {
-            Toast.makeText(this, "保存到本地功能待实现", Toast.LENGTH_SHORT).show();
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                // Android 13及以上版本
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES) 
+                    != PackageManager.PERMISSION_GRANTED) {
+                    // 检查是否应该显示权限请求的解释
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_MEDIA_IMAGES)) {
+                        // 显示解释为什么需要权限，然后请求权限
+                        showPermissionExplanationDialog(() -> {
+                            ActivityCompat.requestPermissions(this, 
+                                new String[]{Manifest.permission.READ_MEDIA_IMAGES}, 
+                                REQUEST_CODE_WRITE_EXTERNAL_STORAGE);
+                        });
+                    } else {
+                        // 权限被永久拒绝或首次请求权限
+                        ActivityCompat.requestPermissions(this, 
+                            new String[]{Manifest.permission.READ_MEDIA_IMAGES}, 
+                            REQUEST_CODE_WRITE_EXTERNAL_STORAGE);
+                    }
+                } else {
+                    performSaveCardToLocal(tvSharePreview);
+                }
+            } else {
+                // Android 12及以下版本
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) 
+                    != PackageManager.PERMISSION_GRANTED) {
+                    // 检查是否应该显示权限请求的解释
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                        // 显示解释为什么需要权限，然后请求权限
+                        showPermissionExplanationDialog(() -> {
+                            ActivityCompat.requestPermissions(this, 
+                                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 
+                                REQUEST_CODE_WRITE_EXTERNAL_STORAGE);
+                        });
+                    } else {
+                        // 权限被永久拒绝或首次请求权限
+                        ActivityCompat.requestPermissions(this, 
+                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 
+                            REQUEST_CODE_WRITE_EXTERNAL_STORAGE);
+                    }
+                } else {
+                    performSaveCardToLocal(tvSharePreview);
+                }
+            }
         });
         
         btnSaveToWorks.setOnClickListener(v -> {
@@ -434,8 +607,6 @@ public class PoemComposeActivity extends AppCompatActivity {
         backgroundDialog.setContentView(R.layout.dialog_background_select);
         
         // 初始化控件
-        Button btnElegant = backgroundDialog.findViewById(R.id.btnElegant);
-        Button btnHeroic = backgroundDialog.findViewById(R.id.btnHeroic);
         Button btnBlank = backgroundDialog.findViewById(R.id.btnBlank);
         Button btnRedSolid = backgroundDialog.findViewById(R.id.btnRedSolid);
         Button btnDarkSolid = backgroundDialog.findViewById(R.id.btnDarkSolid);
@@ -443,38 +614,24 @@ public class PoemComposeActivity extends AppCompatActivity {
         Button btnCloseBackground = backgroundDialog.findViewById(R.id.btnCloseBackground);
         
         // 设置按钮点击事件
-        btnElegant.setOnClickListener(v -> {
-            Toast.makeText(this, "已选择婉约风格背景", Toast.LENGTH_SHORT).show();
-            // 保存选择的背景类型
-            SharedPreferences.Editor editor = settingsPrefs.edit();
-            editor.putString("selected_background", "elegant");
-            editor.apply();
-            backgroundDialog.dismiss();
-        });
-        
-        btnHeroic.setOnClickListener(v -> {
-            Toast.makeText(this, "已选择豪放风格背景", Toast.LENGTH_SHORT).show();
-            // 保存选择的背景类型
-            SharedPreferences.Editor editor = settingsPrefs.edit();
-            editor.putString("selected_background", "heroic");
-            editor.apply();
-            backgroundDialog.dismiss();
-        });
-        
         btnBlank.setOnClickListener(v -> {
             Toast.makeText(this, "已选择空白风格背景", Toast.LENGTH_SHORT).show();
             // 保存选择的背景类型
             SharedPreferences.Editor editor = settingsPrefs.edit();
             editor.putString("selected_background", "blank");
+            // 清理自定义背景图片
+            cleanupCustomBackground();
             editor.apply();
             backgroundDialog.dismiss();
         });
         
         btnRedSolid.setOnClickListener(v -> {
-            Toast.makeText(this, "已选择朱红纯色背景", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "已选择深红纯色背景", Toast.LENGTH_SHORT).show();
             // 保存选择的背景类型
             SharedPreferences.Editor editor = settingsPrefs.edit();
             editor.putString("selected_background", "red_solid");
+            // 清理自定义背景图片
+            cleanupCustomBackground();
             editor.apply();
             backgroundDialog.dismiss();
         });
@@ -484,12 +641,15 @@ public class PoemComposeActivity extends AppCompatActivity {
             // 保存选择的背景类型
             SharedPreferences.Editor editor = settingsPrefs.edit();
             editor.putString("selected_background", "dark_solid");
+            // 清理自定义背景图片
+            cleanupCustomBackground();
             editor.apply();
             backgroundDialog.dismiss();
         });
         
         btnImportBackground.setOnClickListener(v -> {
-            Toast.makeText(this, "导入外部图片功能待实现", Toast.LENGTH_SHORT).show();
+            // 直接尝试打开图片选择器，让系统处理权限问题
+            openImagePickerWithFallback();
             backgroundDialog.dismiss();
         });
         
@@ -498,6 +658,157 @@ public class PoemComposeActivity extends AppCompatActivity {
         backgroundDialog.show();
     }
 
+    private void showPermissionExplanationDialog(Runnable onConfirm) {
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setTitle("需要存储权限")
+               .setMessage("此功能需要访问设备存储权限以保存图片到本地。请在接下来的系统权限请求对话框中授予权限。")
+               .setPositiveButton("继续", (dialog, which) -> onConfirm.run())
+               .setNegativeButton("取消", null)
+               .show();
+    }
+    
+    private void showPermissionDeniedDialog() {
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setTitle("权限被拒绝")
+               .setMessage("存储权限已被拒绝。请手动到系统设置中为本应用授予权限，或者您可以选择其他背景选项。")
+               .setPositiveButton("前往设置", (dialog, which) -> openAppSettings())
+               .setNegativeButton("选择其他背景", null)
+               .show();
+    }
+    
+    private void openAppSettings() {
+        Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Uri uri = Uri.fromParts("package", getPackageName(), null);
+        intent.setData(uri);
+        startActivity(intent);
+    }
+    
+    private void openImagePickerWithFallback() {
+        try {
+            openImagePicker();
+        } catch (Exception e) {
+            // 如果直接打开图片选择器失败，则尝试请求权限
+            int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+            if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                    showPermissionExplanationDialog(() -> {
+                        ActivityCompat.requestPermissions(this, 
+                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 
+                            REQUEST_CODE_READ_EXTERNAL_STORAGE);
+                    });
+                } else {
+                    showPermissionDeniedDialog();
+                }
+            }
+        }
+    }
+    
+    private void openImagePicker() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("image/*");
+        startActivityForResult(Intent.createChooser(intent, "选择图片"), REQUEST_CODE_PICK_IMAGE);
+    }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        
+        if (requestCode == REQUEST_CODE_PICK_IMAGE && resultCode == RESULT_OK && data != null) {
+            Uri selectedImageUri = data.getData();
+            if (selectedImageUri != null) {
+                try {
+                    // 将选中的图片复制到应用私有存储中
+                    String savedImagePath = copyImageToPrivateStorage(selectedImageUri);
+                    if (savedImagePath != null) {
+                        // 保存图片路径到SharedPreferences
+                        SharedPreferences.Editor editor = settingsPrefs.edit();
+                        editor.putString("selected_background", "custom_image");
+                        editor.putString("custom_background_path", savedImagePath);
+                        editor.remove("custom_background_uri"); // 移除旧的URI
+                        editor.apply();
+                        
+                        Toast.makeText(this, "已选择自定义图片背景", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(this, "保存背景图片失败", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(this, "设置背景图片失败: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
+    
+    private String copyImageToPrivateStorage(Uri imageUri) {
+        try {
+            InputStream inputStream = getContentResolver().openInputStream(imageUri);
+            if (inputStream == null) return null;
+            
+            // 创建文件名
+            String fileName = "custom_background_" + System.currentTimeMillis() + ".jpg";
+            
+            // 获取应用私有目录
+            File privateDir = new File(getFilesDir(), "backgrounds");
+            if (!privateDir.exists()) {
+                privateDir.mkdirs();
+            }
+            
+            // 创建目标文件
+            File targetFile = new File(privateDir, fileName);
+            
+            // 复制文件
+            FileOutputStream outputStream = new FileOutputStream(targetFile);
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = inputStream.read(buffer)) > 0) {
+                outputStream.write(buffer, 0, length);
+            }
+            
+            inputStream.close();
+            outputStream.close();
+            
+            return targetFile.getAbsolutePath();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        
+        if (requestCode == REQUEST_CODE_READ_EXTERNAL_STORAGE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "权限已授予，正在打开图片选择器...", Toast.LENGTH_SHORT).show();
+                openImagePicker();
+            } else {
+                // 用户永久拒绝权限（勾选了"不再询问"）
+                if (!ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                    showPermissionDeniedDialog();
+                } else {
+                    Toast.makeText(this, "需要存储权限才能选择图片", Toast.LENGTH_SHORT).show();
+                }
+            }
+        } else if (requestCode == REQUEST_CODE_WRITE_EXTERNAL_STORAGE) {
+            boolean permissionGranted = false;
+            
+            // 检查是否所有请求的权限都被授予
+            for (int i = 0; i < permissions.length; i++) {
+                if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                    permissionGranted = true;
+                    break;
+                }
+            }
+            
+            if (permissionGranted) {
+                // 重新显示分享对话框并执行保存操作
+                showShareDialog();
+            } else {
+                Toast.makeText(this, "需要存储权限才能保存图片到本地", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+    
     private void showSettingsDialog() {
         Dialog settingsDialog = new Dialog(this);
         settingsDialog.setContentView(R.layout.dialog_settings);
@@ -799,19 +1110,22 @@ public class PoemComposeActivity extends AppCompatActivity {
     }
     
     private void saveWorkToMyWorks(String title, String author, String content, String background) {
+        String userToken = preferencesManager.getToken();
+        long userId = preferencesManager.getUserId();
+        
+        if (userToken == null || userToken.isEmpty()) {
+            Toast.makeText(this, "请先登录", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        
+        // 使用BackendService保存作品
+        BackendService backendService = BackendService.getInstance(this);
+        
         // 创建作品数据
         Map<String, Object> workData = new HashMap<>();
         workData.put("title", title);
         workData.put("content", content);
-        workData.put("workType", "template_poem");
-        
-        // 添加字体设置
-        Map<String, Object> fontSetting = new HashMap<>();
-        String fontName = getFontName(currentFontFamily);
-        fontSetting.put("font", fontName);
-        fontSetting.put("size", currentFontSize);
-        fontSetting.put("color", "#000000"); // 默认黑色
-        workData.put("fontSetting", fontSetting);
+        workData.put("workType", "poem");
         
         // 添加背景信息
         Map<String, Object> backgroundInfo = new HashMap<>();
@@ -819,35 +1133,14 @@ public class PoemComposeActivity extends AppCompatActivity {
         backgroundInfo.put("value", background);
         workData.put("backgroundInfo", backgroundInfo);
         
-        // 获取用户token
-        String userToken = preferencesManager.getToken();
-        if (userToken == null || userToken.isEmpty()) {
-            Toast.makeText(this, "用户未登录，请先登录", Toast.LENGTH_SHORT).show();
-            return;
-        }
+        // 调用BackendService保存作品
+        BackendService.Result<Map<String, Object>> result = backendService.saveWork(workData, userId);
         
-        // 调用API保存作品
-        Call<WorkSaveResponse> call = RetrofitClient.getInstance().getApiService().saveWork("Bearer " + userToken, workData);
-        call.enqueue(new Callback<WorkSaveResponse>() {
-            @Override
-            public void onResponse(Call<WorkSaveResponse> call, retrofit2.Response<WorkSaveResponse> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    WorkSaveResponse result = response.body();
-                    if (result.getCode() == 200 && result.getId() != null) {
-                        Toast.makeText(PoemComposeActivity.this, "作品保存成功", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(PoemComposeActivity.this, "作品保存失败: " + result.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(PoemComposeActivity.this, "作品保存失败: " + response.message(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<WorkSaveResponse> call, Throwable t) {
-                Toast.makeText(PoemComposeActivity.this, "网络错误: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        if (result.getCode() == 200) {
+            Toast.makeText(PoemComposeActivity.this, "作品保存成功", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(PoemComposeActivity.this, "作品保存失败: " + result.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void callDeepSeekAPI(String prompt, TextView tvResult) {
@@ -990,6 +1283,80 @@ public class PoemComposeActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+    
+    private void performSaveCardToLocal(TextView view) {
+        try {
+            // 创建Bitmap
+            Bitmap bitmap = createBitmapFromView(view);
+            
+            // 保存Bitmap到本地
+            String fileName = "poem_card_" + System.currentTimeMillis() + ".png";
+            boolean saved = saveImageToGallery(bitmap, fileName);
+            
+            if (saved) {
+                Toast.makeText(this, "图片已保存到相册", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "保存失败", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, "保存过程中出现错误: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
+    
+    private Bitmap createBitmapFromView(TextView view) {
+        // 确保在调用此方法前视图已经布局完成
+        int width = view.getWidth();
+        int height = view.getHeight();
+        
+        if (width <= 0 || height <= 0) {
+            // 如果视图还没有测量，使用默认尺寸
+            width = 800;
+            height = 600;
+        }
+        
+        // 创建与TextView相同尺寸的Bitmap
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        
+        // 绘制背景
+        Drawable background = view.getBackground();
+        if (background != null) {
+            background.draw(canvas);
+        } else {
+            // 如果没有背景，绘制默认背景
+            canvas.drawColor(Color.WHITE);
+        }
+        
+        // 绘制文字内容
+        view.draw(canvas);
+        
+        return bitmap;
+    }
+    
+    private boolean saveImageToGallery(Bitmap bitmap, String fileName) {
+        try {
+            // 获取外部存储的图片目录
+            File picturesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+            File imageFile = new File(picturesDir, fileName);
+            
+            FileOutputStream outputStream = new FileOutputStream(imageFile);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+            outputStream.flush();
+            outputStream.close();
+            
+            // 通知媒体扫描器有新图片
+            Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+            Uri contentUri = Uri.fromFile(imageFile);
+            mediaScanIntent.setData(contentUri);
+            sendBroadcast(mediaScanIntent);
+            
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
     
     private String getFontName(int fontFamily) {

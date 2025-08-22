@@ -16,7 +16,18 @@
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true">
+        
+        <ImageButton
+            android:id="@+id/btnHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_help"
+            android:contentDescription="@string/help" />
+        
+    </androidx.appcompat.widget.Toolbar>
 
     <!-- 标题栏 -->
     <TextView

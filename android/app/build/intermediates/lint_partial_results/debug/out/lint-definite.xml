@@ -1,0 +1,2986 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.2.0" type="incidents">
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;生成分享卡片&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_card_generate.xml"
+            line="15"
+            column="9"
+            startOffset="570"
+            endLine="15"
+            endColumn="30"
+            endOffset="591"/>
+    </incident>
+
+    <incident
+        id="NestedWeights"
+        severity="warning"
+        message="Nested weights are bad for performance">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_card_generate.xml"
+            line="47"
+            column="13"
+            startOffset="1711"
+            endLine="47"
+            endColumn="38"
+            endOffset="1736"/>
+    </incident>
+
+    <incident
+        id="ContentDescription"
+        severity="warning"
+        message="Missing `contentDescription` attribute on image">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set contentDescription"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="contentDescription"
+                value="TODO"
+                dot="4"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAccessibility=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAccessibility"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_card_generate.xml"
+            line="34"
+            column="10"
+            startOffset="1206"
+            endLine="34"
+            endColumn="19"
+            endOffset="1215"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;选择卡片背景&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_card_generate.xml"
+            line="59"
+            column="9"
+            startOffset="2106"
+            endLine="59"
+            endColumn="30"
+            endOffset="2127"/>
+    </incident>
+
+    <incident
+        id="ButtonStyle"
+        severity="warning"
+        message="Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)">
+        <fix-composite
+            description="Make borderless">
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_card_generate.xml"
+                    startOffset="2330"
+                    endOffset="3320"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_card_generate.xml"
+                    startOffset="2484"
+                    endOffset="2886"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_card_generate.xml"
+                    startOffset="2896"
+                    endOffset="3300"/>
+            </fix-attribute>
+        </fix-composite>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_card_generate.xml"
+            line="71"
+            column="10"
+            startOffset="2485"
+            endLine="71"
+            endColumn="16"
+            endOffset="2491"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;保存到本地&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_card_generate.xml"
+            line="76"
+            column="13"
+            startOffset="2675"
+            endLine="76"
+            endColumn="33"
+            endOffset="2695"/>
+    </incident>
+
+    <incident
+        id="ButtonStyle"
+        severity="warning"
+        message="Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)">
+        <fix-composite
+            description="Make borderless">
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_card_generate.xml"
+                    startOffset="2330"
+                    endOffset="3320"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_card_generate.xml"
+                    startOffset="2484"
+                    endOffset="2886"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_card_generate.xml"
+                    startOffset="2896"
+                    endOffset="3300"/>
+            </fix-attribute>
+        </fix-composite>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_card_generate.xml"
+            line="82"
+            column="10"
+            startOffset="2897"
+            endLine="82"
+            endColumn="16"
+            endOffset="2903"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;保存到我的作品&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_card_generate.xml"
+            line="87"
+            column="13"
+            startOffset="3087"
+            endLine="87"
+            endColumn="35"
+            endOffset="3109"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;返回&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_card_generate.xml"
+            line="99"
+            column="9"
+            startOffset="3483"
+            endLine="99"
+            endColumn="26"
+            endOffset="3500"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;我的作品&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_gallery.xml"
+            line="14"
+            column="9"
+            startOffset="512"
+            endLine="14"
+            endColumn="28"
+            endOffset="531"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;返回&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_gallery.xml"
+            line="32"
+            column="9"
+            startOffset="1108"
+            endLine="32"
+            endColumn="26"
+            endOffset="1125"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;用户登录&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_login.xml"
+            line="15"
+            column="9"
+            startOffset="563"
+            endLine="15"
+            endColumn="28"
+            endOffset="582"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_login.xml"
+            line="30"
+            column="10"
+            startOffset="1120"
+            endLine="30"
+            endColumn="18"
+            endOffset="1128"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_login.xml"
+            line="49"
+            column="10"
+            startOffset="1917"
+            endLine="49"
+            endColumn="18"
+            endOffset="1925"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;没有账户？点击注册&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_login.xml"
+            line="73"
+            column="9"
+            startOffset="2829"
+            endLine="73"
+            endColumn="33"
+            endOffset="2853"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;创作诗词&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="21"
+            column="13"
+            startOffset="779"
+            endLine="21"
+            endColumn="32"
+            endOffset="798"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;主页&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="35"
+            column="13"
+            startOffset="1339"
+            endLine="35"
+            endColumn="44"
+            endOffset="1370"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;返回&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="47"
+            column="13"
+            startOffset="1842"
+            endLine="47"
+            endColumn="44"
+            endOffset="1873"/>
+    </incident>
+
+    <incident
+        id="TextFields"
+        severity="warning"
+        message="This text field does not specify an `inputType`">
+        <fix-attribute
+            description="Set inputType"
+            namespace="http://schemas.android.com/apk/res/android"
+            attribute="inputType"
+            value="TODO"
+            dot="4"
+            mark="0"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="73"
+            column="14"
+            startOffset="2672"
+            endLine="73"
+            endColumn="22"
+            endOffset="2680"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="73"
+            column="14"
+            startOffset="2672"
+            endLine="73"
+            endColumn="22"
+            endOffset="2680"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;作品标题&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="77"
+            column="17"
+            startOffset="2844"
+            endLine="77"
+            endColumn="36"
+            endOffset="2863"/>
+    </incident>
+
+    <incident
+        id="TextFields"
+        severity="warning"
+        message="This text field does not specify an `inputType`">
+        <fix-attribute
+            description="Set inputType"
+            namespace="http://schemas.android.com/apk/res/android"
+            attribute="inputType"
+            value="TODO"
+            dot="4"
+            mark="0"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="86"
+            column="14"
+            startOffset="3222"
+            endLine="86"
+            endColumn="22"
+            endOffset="3230"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="86"
+            column="14"
+            startOffset="3222"
+            endLine="86"
+            endColumn="22"
+            endOffset="3230"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;作者&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="90"
+            column="17"
+            startOffset="3395"
+            endLine="90"
+            endColumn="34"
+            endOffset="3412"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;作者&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="154"
+            column="21"
+            startOffset="6271"
+            endLine="154"
+            endColumn="38"
+            endOffset="6288"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;作品标题&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="169"
+            column="21"
+            startOffset="7020"
+            endLine="169"
+            endColumn="40"
+            endOffset="7039"/>
+    </incident>
+
+    <incident
+        id="NestedWeights"
+        severity="warning"
+        message="Nested weights are bad for performance">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="198"
+            column="13"
+            startOffset="7925"
+            endLine="198"
+            endColumn="38"
+            endOffset="7950"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;词牌示例&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="188"
+            column="13"
+            startOffset="7584"
+            endLine="188"
+            endColumn="32"
+            endOffset="7603"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;推荐韵脚&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="226"
+            column="13"
+            startOffset="8939"
+            endLine="226"
+            endColumn="46"
+            endOffset="8972"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;分享&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="238"
+            column="13"
+            startOffset="9400"
+            endLine="238"
+            endColumn="44"
+            endOffset="9431"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;设置&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="250"
+            column="13"
+            startOffset="9863"
+            endLine="250"
+            endColumn="44"
+            endOffset="9894"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;灵感&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="262"
+            column="13"
+            startOffset="10327"
+            endLine="262"
+            endColumn="44"
+            endOffset="10358"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;词牌推荐&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_display.xml"
+            line="16"
+            column="9"
+            startOffset="603"
+            endLine="16"
+            endColumn="28"
+            endOffset="622"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;词牌名：&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_display.xml"
+            line="37"
+            column="17"
+            startOffset="1303"
+            endLine="37"
+            endColumn="36"
+            endOffset="1322"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;示例诗词：&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_display.xml"
+            line="56"
+            column="17"
+            startOffset="2089"
+            endLine="56"
+            endColumn="37"
+            endOffset="2109"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;选择该词牌为模板&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_display.xml"
+            line="82"
+            column="9"
+            startOffset="3055"
+            endLine="82"
+            endColumn="32"
+            endOffset="3078"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;用户注册&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_register.xml"
+            line="15"
+            column="9"
+            startOffset="566"
+            endLine="15"
+            endColumn="28"
+            endOffset="585"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_register.xml"
+            line="30"
+            column="10"
+            startOffset="1123"
+            endLine="30"
+            endColumn="18"
+            endOffset="1131"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_register.xml"
+            line="49"
+            column="10"
+            startOffset="1920"
+            endLine="49"
+            endColumn="18"
+            endOffset="1928"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_register.xml"
+            line="68"
+            column="10"
+            startOffset="2725"
+            endLine="68"
+            endColumn="18"
+            endOffset="2733"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;已有账户？点击登录&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_register.xml"
+            line="92"
+            column="9"
+            startOffset="3655"
+            endLine="92"
+            endColumn="33"
+            endOffset="3679"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;作品展示&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_work_display.xml"
+            line="25"
+            column="13"
+            startOffset="913"
+            endLine="25"
+            endColumn="32"
+            endOffset="932"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;更多操作&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_work_display.xml"
+            line="38"
+            column="13"
+            startOffset="1430"
+            endLine="38"
+            endColumn="46"
+            endOffset="1463"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;返回&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_work_display.xml"
+            line="73"
+            column="13"
+            startOffset="2593"
+            endLine="73"
+            endColumn="30"
+            endOffset="2610"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;AI补全诗词&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_ai_completion.xml"
+            line="12"
+            column="9"
+            startOffset="421"
+            endLine="12"
+            endColumn="30"
+            endOffset="442"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;API Key设置&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_ai_completion.xml"
+            line="24"
+            column="9"
+            startOffset="806"
+            endLine="24"
+            endColumn="33"
+            endOffset="830"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;提示词：&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_ai_completion.xml"
+            line="33"
+            column="9"
+            startOffset="1113"
+            endLine="33"
+            endColumn="28"
+            endOffset="1132"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_ai_completion.xml"
+            line="39"
+            column="6"
+            startOffset="1299"
+            endLine="39"
+            endColumn="14"
+            endOffset="1307"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;请输入提示词&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_ai_completion.xml"
+            line="43"
+            column="9"
+            startOffset="1440"
+            endLine="43"
+            endColumn="30"
+            endOffset="1461"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;开始补全&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_ai_completion.xml"
+            line="58"
+            column="9"
+            startOffset="1967"
+            endLine="58"
+            endColumn="28"
+            endOffset="1986"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;补全结果：&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_ai_completion.xml"
+            line="67"
+            column="9"
+            startOffset="2266"
+            endLine="67"
+            endColumn="29"
+            endOffset="2286"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;AI补全结果将在此显示&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_ai_completion.xml"
+            line="85"
+            column="13"
+            startOffset="2887"
+            endLine="85"
+            endColumn="39"
+            endOffset="2913"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;关闭&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_ai_completion.xml"
+            line="99"
+            column="9"
+            startOffset="3355"
+            endLine="99"
+            endColumn="26"
+            endOffset="3372"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;API 申请指南&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_guide.xml"
+            line="12"
+            column="9"
+            startOffset="421"
+            endLine="12"
+            endColumn="32"
+            endOffset="444"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;加载中...&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_guide.xml"
+            line="31"
+            column="13"
+            startOffset="1065"
+            endLine="31"
+            endColumn="34"
+            endOffset="1086"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;关闭&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_guide.xml"
+            line="41"
+            column="9"
+            startOffset="1366"
+            endLine="41"
+            endColumn="26"
+            endOffset="1383"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;API Key设置&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_key.xml"
+            line="12"
+            column="9"
+            startOffset="421"
+            endLine="12"
+            endColumn="33"
+            endOffset="445"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;DeepSeek API Key：&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_key.xml"
+            line="23"
+            column="9"
+            startOffset="776"
+            endLine="23"
+            endColumn="41"
+            endOffset="808"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_key.xml"
+            line="29"
+            column="6"
+            startOffset="975"
+            endLine="29"
+            endColumn="14"
+            endOffset="983"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;请输入API Key&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_key.xml"
+            line="33"
+            column="9"
+            startOffset="1116"
+            endLine="33"
+            endColumn="34"
+            endOffset="1141"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;记住API Key&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_key.xml"
+            line="46"
+            column="9"
+            startOffset="1605"
+            endLine="46"
+            endColumn="33"
+            endOffset="1629"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;查看API申请指南&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_key.xml"
+            line="55"
+            column="9"
+            startOffset="1894"
+            endLine="55"
+            endColumn="33"
+            endOffset="1918"/>
+    </incident>
+
+    <incident
+        id="ButtonStyle"
+        severity="warning"
+        message="Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)">
+        <fix-composite
+            description="Make borderless">
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_key.xml"
+                    startOffset="2089"
+                    endOffset="2991"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_key.xml"
+                    startOffset="2243"
+                    endOffset="2603"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_key.xml"
+                    startOffset="2613"
+                    endOffset="2971"/>
+            </fix-attribute>
+        </fix-composite>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_key.xml"
+            line="66"
+            column="10"
+            startOffset="2244"
+            endLine="66"
+            endColumn="16"
+            endOffset="2250"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;保存&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_key.xml"
+            line="71"
+            column="13"
+            startOffset="2433"
+            endLine="71"
+            endColumn="30"
+            endOffset="2450"/>
+    </incident>
+
+    <incident
+        id="ButtonStyle"
+        severity="warning"
+        message="Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)">
+        <fix-composite
+            description="Make borderless">
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_key.xml"
+                    startOffset="2089"
+                    endOffset="2991"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_key.xml"
+                    startOffset="2243"
+                    endOffset="2603"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_key.xml"
+                    startOffset="2613"
+                    endOffset="2971"/>
+            </fix-attribute>
+        </fix-composite>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_key.xml"
+            line="76"
+            column="10"
+            startOffset="2614"
+            endLine="76"
+            endColumn="16"
+            endOffset="2620"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;关闭&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_key.xml"
+            line="81"
+            column="13"
+            startOffset="2800"
+            endLine="81"
+            endColumn="30"
+            endOffset="2817"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;选择卡片背景&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_background_select.xml"
+            line="12"
+            column="9"
+            startOffset="421"
+            endLine="12"
+            endColumn="30"
+            endOffset="442"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;默认背景：&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_background_select.xml"
+            line="23"
+            column="9"
+            startOffset="767"
+            endLine="23"
+            endColumn="29"
+            endOffset="787"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;空白风格&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_background_select.xml"
+            line="42"
+            column="13"
+            startOffset="1414"
+            endLine="42"
+            endColumn="32"
+            endOffset="1433"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;深红纯色&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_background_select.xml"
+            line="52"
+            column="13"
+            startOffset="1780"
+            endLine="52"
+            endColumn="32"
+            endOffset="1799"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;淡黑纯色&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_background_select.xml"
+            line="62"
+            column="13"
+            startOffset="2138"
+            endLine="62"
+            endColumn="32"
+            endOffset="2157"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;导入外部图片&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_background_select.xml"
+            line="73"
+            column="9"
+            startOffset="2510"
+            endLine="73"
+            endColumn="30"
+            endOffset="2531"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;关闭&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_background_select.xml"
+            line="83"
+            column="9"
+            startOffset="2852"
+            endLine="83"
+            endColumn="26"
+            endOffset="2869"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;选择字体&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_font_select.xml"
+            line="12"
+            column="9"
+            startOffset="421"
+            endLine="12"
+            endColumn="28"
+            endOffset="440"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;系统默认字体&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_font_select.xml"
+            line="23"
+            column="9"
+            startOffset="788"
+            endLine="23"
+            endColumn="30"
+            endOffset="809"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;宋体&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_font_select.xml"
+            line="33"
+            column="9"
+            startOffset="1131"
+            endLine="33"
+            endColumn="26"
+            endOffset="1148"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;黑体&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_font_select.xml"
+            line="43"
+            column="9"
+            startOffset="1474"
+            endLine="43"
+            endColumn="26"
+            endOffset="1491"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;等宽字体&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_font_select.xml"
+            line="53"
+            column="9"
+            startOffset="1817"
+            endLine="53"
+            endColumn="28"
+            endOffset="1836"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;仿宋字体&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_font_select.xml"
+            line="63"
+            column="9"
+            startOffset="2161"
+            endLine="63"
+            endColumn="28"
+            endOffset="2180"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;楷体字体&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_font_select.xml"
+            line="73"
+            column="9"
+            startOffset="2502"
+            endLine="73"
+            endColumn="28"
+            endOffset="2521"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;推荐韵脚&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_rhyme.xml"
+            line="12"
+            column="9"
+            startOffset="421"
+            endLine="12"
+            endColumn="28"
+            endOffset="440"/>
+    </incident>
+
+    <incident
+        id="TextFields"
+        severity="warning"
+        message="This text field does not specify an `inputType`">
+        <fix-attribute
+            description="Set inputType"
+            namespace="http://schemas.android.com/apk/res/android"
+            attribute="inputType"
+            value="TODO"
+            dot="4"
+            mark="0"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_rhyme.xml"
+            line="20"
+            column="6"
+            startOffset="658"
+            endLine="20"
+            endColumn="14"
+            endOffset="666"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_rhyme.xml"
+            line="20"
+            column="6"
+            startOffset="658"
+            endLine="20"
+            endColumn="14"
+            endOffset="666"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;请输入一个字、词或句子&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_rhyme.xml"
+            line="24"
+            column="9"
+            startOffset="804"
+            endLine="24"
+            endColumn="35"
+            endOffset="830"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;推荐韵脚字：&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_rhyme.xml"
+            line="35"
+            column="9"
+            startOffset="1201"
+            endLine="35"
+            endColumn="30"
+            endOffset="1222"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;韵脚字将在此显示&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_rhyme.xml"
+            line="52"
+            column="13"
+            startOffset="1787"
+            endLine="52"
+            endColumn="36"
+            endOffset="1810"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;关闭&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_rhyme.xml"
+            line="62"
+            column="9"
+            startOffset="2090"
+            endLine="62"
+            endColumn="26"
+            endOffset="2107"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;字体选择&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+            line="17"
+            column="13"
+            startOffset="570"
+            endLine="17"
+            endColumn="32"
+            endOffset="589"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;选择字体&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+            line="27"
+            column="13"
+            startOffset="936"
+            endLine="27"
+            endColumn="32"
+            endOffset="955"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;字体大小&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+            line="36"
+            column="13"
+            startOffset="1265"
+            endLine="36"
+            endColumn="32"
+            endOffset="1284"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;-&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+            line="53"
+            column="17"
+            startOffset="1891"
+            endLine="53"
+            endColumn="33"
+            endOffset="1907"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;16&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+            line="62"
+            column="17"
+            startOffset="2247"
+            endLine="62"
+            endColumn="34"
+            endOffset="2264"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;+&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+            line="71"
+            column="17"
+            startOffset="2593"
+            endLine="71"
+            endColumn="33"
+            endOffset="2609"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;排列方向&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+            line="81"
+            column="13"
+            startOffset="2944"
+            endLine="81"
+            endColumn="32"
+            endOffset="2963"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;横排&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+            line="99"
+            column="17"
+            startOffset="3631"
+            endLine="99"
+            endColumn="34"
+            endOffset="3648"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;竖排&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+            line="107"
+            column="17"
+            startOffset="3938"
+            endLine="107"
+            endColumn="34"
+            endOffset="3955"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;字体颜色&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+            line="115"
+            column="13"
+            startOffset="4191"
+            endLine="115"
+            endColumn="32"
+            endOffset="4210"/>
+    </incident>
+
+    <incident
+        id="ButtonStyle"
+        severity="warning"
+        message="Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)">
+        <fix-composite
+            description="Make borderless">
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="4396"
+                    endOffset="5718"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="4613"
+                    endOffset="4869"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="4883"
+                    endOffset="5179"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="5193"
+                    endOffset="5435"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="5449"
+                    endOffset="5694"/>
+            </fix-attribute>
+        </fix-composite>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+            line="127"
+            column="14"
+            startOffset="4614"
+            endLine="127"
+            endColumn="20"
+            endOffset="4620"/>
+    </incident>
+
+    <incident
+        id="ButtonStyle"
+        severity="warning"
+        message="Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)">
+        <fix-composite
+            description="Make borderless">
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="4396"
+                    endOffset="5718"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="4613"
+                    endOffset="4869"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="4883"
+                    endOffset="5179"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="5193"
+                    endOffset="5435"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="5449"
+                    endOffset="5694"/>
+            </fix-attribute>
+        </fix-composite>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+            line="134"
+            column="14"
+            startOffset="4884"
+            endLine="134"
+            endColumn="20"
+            endOffset="4890"/>
+    </incident>
+
+    <incident
+        id="ButtonStyle"
+        severity="warning"
+        message="Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)">
+        <fix-composite
+            description="Make borderless">
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="4396"
+                    endOffset="5718"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="4613"
+                    endOffset="4869"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="4883"
+                    endOffset="5179"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="5193"
+                    endOffset="5435"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="5449"
+                    endOffset="5694"/>
+            </fix-attribute>
+        </fix-composite>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+            line="142"
+            column="14"
+            startOffset="5194"
+            endLine="142"
+            endColumn="20"
+            endOffset="5200"/>
+    </incident>
+
+    <incident
+        id="ButtonStyle"
+        severity="warning"
+        message="Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)">
+        <fix-composite
+            description="Make borderless">
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="4396"
+                    endOffset="5718"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="4613"
+                    endOffset="4869"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="4883"
+                    endOffset="5179"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="5193"
+                    endOffset="5435"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+                    startOffset="5449"
+                    endOffset="5694"/>
+            </fix-attribute>
+        </fix-composite>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+            line="149"
+            column="14"
+            startOffset="5450"
+            endLine="149"
+            endColumn="20"
+            endOffset="5456"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;选择排列方向&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+            line="162"
+            column="13"
+            startOffset="5920"
+            endLine="162"
+            endColumn="34"
+            endOffset="5941"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;关闭&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+            line="172"
+            column="13"
+            startOffset="6295"
+            endLine="172"
+            endColumn="30"
+            endOffset="6312"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;分享作品&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_share.xml"
+            line="12"
+            column="9"
+            startOffset="421"
+            endLine="12"
+            endColumn="28"
+            endOffset="440"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;作品预览：&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_share.xml"
+            line="23"
+            column="9"
+            startOffset="765"
+            endLine="23"
+            endColumn="29"
+            endOffset="785"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;作品预览将在此显示&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_share.xml"
+            line="42"
+            column="13"
+            startOffset="1420"
+            endLine="42"
+            endColumn="37"
+            endOffset="1444"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;选择卡片背景&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_share.xml"
+            line="52"
+            column="9"
+            startOffset="1734"
+            endLine="52"
+            endColumn="30"
+            endOffset="1755"/>
+    </incident>
+
+    <incident
+        id="ButtonStyle"
+        severity="warning"
+        message="Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)">
+        <fix-composite
+            description="Make borderless">
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_share.xml"
+                    startOffset="1926"
+                    endOffset="2844"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_share.xml"
+                    startOffset="2080"
+                    endOffset="2446"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_share.xml"
+                    startOffset="2456"
+                    endOffset="2824"/>
+            </fix-attribute>
+        </fix-composite>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_share.xml"
+            line="63"
+            column="10"
+            startOffset="2081"
+            endLine="63"
+            endColumn="16"
+            endOffset="2087"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;保存到本地&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_share.xml"
+            line="68"
+            column="13"
+            startOffset="2271"
+            endLine="68"
+            endColumn="33"
+            endOffset="2291"/>
+    </incident>
+
+    <incident
+        id="ButtonStyle"
+        severity="warning"
+        message="Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)">
+        <fix-composite
+            description="Make borderless">
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_share.xml"
+                    startOffset="1926"
+                    endOffset="2844"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_share.xml"
+                    startOffset="2080"
+                    endOffset="2446"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_share.xml"
+                    startOffset="2456"
+                    endOffset="2824"/>
+            </fix-attribute>
+        </fix-composite>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_share.xml"
+            line="73"
+            column="10"
+            startOffset="2457"
+            endLine="73"
+            endColumn="16"
+            endOffset="2463"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;保存到我的作品&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_share.xml"
+            line="78"
+            column="13"
+            startOffset="2647"
+            endLine="78"
+            endColumn="35"
+            endOffset="2669"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;关闭&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_share.xml"
+            line="89"
+            column="9"
+            startOffset="3013"
+            endLine="89"
+            endColumn="26"
+            endOffset="3030"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;词牌名&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_cipai.xml"
+            line="21"
+            column="13"
+            startOffset="764"
+            endLine="21"
+            endColumn="31"
+            endOffset="782"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;示例诗句&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_cipai.xml"
+            line="31"
+            column="13"
+            startOffset="1127"
+            endLine="31"
+            endColumn="32"
+            endOffset="1146"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;作品预览内容&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_work.xml"
+            line="28"
+            column="17"
+            startOffset="1049"
+            endLine="28"
+            endColumn="38"
+            endOffset="1070"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;作品标题&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_work.xml"
+            line="47"
+            column="17"
+            startOffset="1728"
+            endLine="47"
+            endColumn="36"
+            endOffset="1747"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;作品类型&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_work.xml"
+            line="59"
+            column="17"
+            startOffset="2202"
+            endLine="59"
+            endColumn="36"
+            endOffset="2221"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;创建日期&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_work.xml"
+            line="68"
+            column="17"
+            startOffset="2561"
+            endLine="68"
+            endColumn="36"
+            endOffset="2580"/>
+    </incident>
+
+    <incident
+        id="SmallSp"
+        severity="warning"
+        message="Avoid using sizes smaller than `11sp`: `10sp`">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/item_work.xml"
+            line="69"
+            column="17"
+            startOffset="2597"
+            endLine="69"
+            endColumn="40"
+            endOffset="2620"/>
+    </incident>
+
+    <incident
+        id="IntentReset"
+        severity="warning"
+        message="Calling `setType` after setting URI in `Intent` constructor will clear the data: Call `setDataAndType` instead?">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/poemai/CardGenerateActivity.java"
+            line="401"
+            column="16"
+            startOffset="16286"
+            endLine="401"
+            endColumn="34"
+            endOffset="16304"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/poemai/CardGenerateActivity.java"
+            line="400"
+            column="56"
+            startOffset="16224"
+            endLine="400"
+            endColumn="100"
+            endOffset="16268"
+            message="Originally set here"/>
+    </incident>
+
+    <incident
+        id="NotifyDataSetChanged"
+        severity="warning"
+        message="It will always be more efficient to use more specific change events if you can. Rely on `notifyDataSetChanged` as a last resort.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/poemai/CiPaiRecommendActivity.java"
+            line="121"
+            column="17"
+            startOffset="4251"
+            endLine="121"
+            endColumn="52"
+            endOffset="4286"/>
+    </incident>
+
+    <incident
+        id="NotifyDataSetChanged"
+        severity="warning"
+        message="It will always be more efficient to use more specific change events if you can. Rely on `notifyDataSetChanged` as a last resort.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/poemai/GalleryActivity.java"
+            line="68"
+            column="9"
+            startOffset="2279"
+            endLine="68"
+            endColumn="43"
+            endOffset="2313"/>
+    </incident>
+
+    <incident
+        id="NotifyDataSetChanged"
+        severity="warning"
+        message="It will always be more efficient to use more specific change events if you can. Rely on `notifyDataSetChanged` as a last resort.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/poemai/MainActivity.java"
+            line="147"
+            column="45"
+            startOffset="5470"
+            endLine="147"
+            endColumn="79"
+            endOffset="5504"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/poemai/PoemComposeActivity.java"
+            line="470"
+            column="36"
+            startOffset="17278"
+            endLine="470"
+            endColumn="66"
+            endOffset="17308"/>
+    </incident>
+
+    <incident
+        id="IntentReset"
+        severity="warning"
+        message="Calling `setType` after setting URI in `Intent` constructor will clear the data: Call `setDataAndType` instead?">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/poemai/PoemComposeActivity.java"
+            line="708"
+            column="16"
+            startOffset="28009"
+            endLine="708"
+            endColumn="34"
+            endOffset="28027"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/poemai/PoemComposeActivity.java"
+            line="707"
+            column="56"
+            startOffset="27947"
+            endLine="707"
+            endColumn="100"
+            endOffset="27991"
+            message="Originally set here"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/poemai/PoemComposeActivity.java"
+            line="1103"
+            column="36"
+            startOffset="44124"
+            endLine="1103"
+            endColumn="68"
+            endOffset="44156"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/poemai/PoemComposeActivity.java"
+            line="1103"
+            column="36"
+            startOffset="44124"
+            endLine="1103"
+            endColumn="51"
+            endOffset="44139"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/poemai/PoemComposeActivity.java"
+            line="1150"
+            column="50"
+            startOffset="45931"
+            endLine="1150"
+            endColumn="63"
+            endOffset="45944"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/poemai/PoemComposeActivity.java"
+            line="1202"
+            column="54"
+            startOffset="47908"
+            endLine="1202"
+            endColumn="79"
+            endOffset="47933"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/poemai/PoemComposeActivity.java"
+            line="1218"
+            column="58"
+            startOffset="48571"
+            endLine="1218"
+            endColumn="105"
+            endOffset="48618"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="String literal in `setText` can not be translated. Use Android resources instead.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/poemai/PoemComposeActivity.java"
+            line="1218"
+            column="58"
+            startOffset="48571"
+            endLine="1218"
+            endColumn="67"
+            endOffset="48580"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/poemai/PoemComposeActivity.java"
+            line="1266"
+            column="58"
+            startOffset="50911"
+            endLine="1266"
+            endColumn="83"
+            endOffset="50936"/>
+    </incident>
+
+    <incident
+        id="ClickableViewAccessibility"
+        severity="warning"
+        message="Custom view `VerticalTextView` overrides `onTouchEvent` but not `performClick`">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/poemai/VerticalTextView.java"
+            line="88"
+            column="20"
+            startOffset="2491"
+            endLine="88"
+            endColumn="32"
+            endOffset="2503"/>
+    </incident>
+
+    <incident
+        id="OldTargetApi"
+        severity="warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details.">
+        <fix-replace
+            description="Update targetSdkVersion to 36"
+            oldString="34"
+            replacement="36"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="11"
+            column="9"
+            startOffset="212"
+            endLine="11"
+            endColumn="28"
+            endOffset="231"/>
+    </incident>
+
+    <incident
+        id="GradleDynamicVersion"
+        severity="warning"
+        message="Avoid using + in version numbers; can lead to unpredictable and unrepeatable builds (junit:junit:4.+)">
+        <fix-data coordinate="junit:junit:4.+" revision="4.+"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="60"
+            column="24"
+            startOffset="1913"
+            endLine="60"
+            endColumn="41"
+            endOffset="1930"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.appcompat:appcompat than 1.4.0 is available: 1.6.1">
+        <fix-replace
+            description="Change to 1.6.1"
+            family="Update versions"
+            oldString="1.4.0"
+            replacement="1.6.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="36"
+            column="20"
+            startOffset="822"
+            endLine="36"
+            endColumn="56"
+            endOffset="858"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.android.material:material than 1.4.0 is available: 1.11.0">
+        <fix-replace
+            description="Change to 1.11.0"
+            family="Update versions"
+            oldString="1.4.0"
+            replacement="1.11.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="37"
+            column="20"
+            startOffset="878"
+            endLine="37"
+            endColumn="64"
+            endOffset="922"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.constraintlayout:constraintlayout than 2.1.2 is available: 2.1.4">
+        <fix-replace
+            description="Change to 2.1.4"
+            family="Update versions"
+            oldString="2.1.2"
+            replacement="2.1.4"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="38"
+            column="20"
+            startOffset="942"
+            endLine="38"
+            endColumn="70"
+            endOffset="992"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.navigation:navigation-fragment than 2.3.5 is available: 2.6.0">
+        <fix-replace
+            description="Change to 2.6.0"
+            family="Update versions"
+            oldString="2.3.5"
+            replacement="2.6.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="39"
+            column="20"
+            startOffset="1012"
+            endLine="39"
+            endColumn="67"
+            endOffset="1059"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.navigation:navigation-ui than 2.3.5 is available: 2.6.0">
+        <fix-replace
+            description="Change to 2.6.0"
+            family="Update versions"
+            oldString="2.3.5"
+            replacement="2.6.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="40"
+            column="20"
+            startOffset="1079"
+            endLine="40"
+            endColumn="61"
+            endOffset="1120"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.code.gson:gson than 2.8.8 is available: 2.10.1">
+        <fix-replace
+            description="Change to 2.10.1"
+            family="Update versions"
+            oldString="2.8.8"
+            replacement="2.10.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="43"
+            column="20"
+            startOffset="1264"
+            endLine="43"
+            endColumn="53"
+            endOffset="1297"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.lifecycle:lifecycle-viewmodel than 2.4.0 is available: 2.6.1">
+        <fix-replace
+            description="Change to 2.6.1"
+            family="Update versions"
+            oldString="2.4.0"
+            replacement="2.6.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="44"
+            column="20"
+            startOffset="1317"
+            endLine="44"
+            endColumn="66"
+            endOffset="1363"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.lifecycle:lifecycle-runtime than 2.4.0 is available: 2.6.1">
+        <fix-replace
+            description="Change to 2.6.1"
+            family="Update versions"
+            oldString="2.4.0"
+            replacement="2.6.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="45"
+            column="20"
+            startOffset="1383"
+            endLine="45"
+            endColumn="64"
+            endOffset="1427"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.activity:activity than 1.4.0 is available: 1.8.0">
+        <fix-replace
+            description="Change to 1.8.0"
+            family="Update versions"
+            oldString="1.4.0"
+            replacement="1.8.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="46"
+            column="20"
+            startOffset="1447"
+            endLine="46"
+            endColumn="54"
+            endOffset="1481"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.squareup.okhttp3:logging-interceptor than 4.9.0 is available: 4.12.0">
+        <fix-replace
+            description="Change to 4.12.0"
+            family="Update versions"
+            oldString="4.9.0"
+            replacement="4.12.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="47"
+            column="20"
+            startOffset="1501"
+            endLine="47"
+            endColumn="68"
+            endOffset="1549"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.test.ext:junit than 1.1.3 is available: 1.1.5">
+        <fix-replace
+            description="Change to 1.1.5"
+            family="Update versions"
+            oldString="1.1.3"
+            replacement="1.1.5"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="61"
+            column="31"
+            startOffset="1961"
+            endLine="61"
+            endColumn="62"
+            endOffset="1992"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.test.espresso:espresso-core than 3.4.0 is available: 3.5.1">
+        <fix-replace
+            description="Change to 3.5.1"
+            family="Update versions"
+            oldString="3.4.0"
+            replacement="3.5.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="62"
+            column="31"
+            startOffset="2023"
+            endLine="62"
+            endColumn="75"
+            endOffset="2067"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/ic_launcher.png` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/ic_launcher.png"/>
+    </incident>
+
+    <incident
+        id="IconLocation"
+        severity="warning"
+        message="Found bitmap drawable `res/drawable/ic_launcher_round.png` in densityless folder">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/ic_launcher_round.png"/>
+    </incident>
+
+    <incident
+        id="IconLauncherShape"
+        severity="warning"
+        message="Launcher icons should not fill every pixel of their square region; see the design guide for details">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/ic_launcher.png"/>
+    </incident>
+
+    <incident
+        id="IconLauncherShape"
+        severity="warning"
+        message="Launcher icon used as round icon did not have a circular shape">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/ic_launcher_round.png"/>
+    </incident>
+
+    <incident
+        id="IconDuplicates"
+        severity="warning"
+        message="The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/ic_launcher_round.png"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/ic_launcher.png"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_card_create.xml"
+            line="8"
+            column="5"
+            startOffset="333"
+            endLine="8"
+            endColumn="53"
+            endOffset="381"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_card_generate.xml"
+            line="9"
+            column="5"
+            startOffset="366"
+            endLine="9"
+            endColumn="53"
+            endOffset="414"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_cipai_recommend.xml"
+            line="9"
+            column="5"
+            startOffset="366"
+            endLine="9"
+            endColumn="53"
+            endOffset="414"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_login.xml"
+            line="9"
+            column="5"
+            startOffset="366"
+            endLine="9"
+            endColumn="53"
+            endOffset="414"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="7"
+            column="5"
+            startOffset="306"
+            endLine="7"
+            endColumn="53"
+            endOffset="354"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_compose.xml"
+            line="9"
+            column="5"
+            startOffset="366"
+            endLine="9"
+            endColumn="53"
+            endOffset="414"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_poem_display.xml"
+            line="9"
+            column="5"
+            startOffset="366"
+            endLine="9"
+            endColumn="53"
+            endOffset="414"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_register.xml"
+            line="9"
+            column="5"
+            startOffset="366"
+            endLine="9"
+            endColumn="53"
+            endOffset="414"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/activity_work_display.xml"
+            line="7"
+            column="5"
+            startOffset="306"
+            endLine="7"
+            endColumn="53"
+            endOffset="354"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_ai_completion.xml"
+            line="7"
+            column="5"
+            startOffset="259"
+            endLine="7"
+            endColumn="53"
+            endOffset="307"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_guide.xml"
+            line="7"
+            column="5"
+            startOffset="259"
+            endLine="7"
+            endColumn="53"
+            endOffset="307"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_api_key.xml"
+            line="7"
+            column="5"
+            startOffset="259"
+            endLine="7"
+            endColumn="53"
+            endOffset="307"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_background_select.xml"
+            line="7"
+            column="5"
+            startOffset="259"
+            endLine="7"
+            endColumn="53"
+            endOffset="307"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_direction_select.xml"
+            line="7"
+            column="5"
+            startOffset="259"
+            endLine="7"
+            endColumn="53"
+            endOffset="307"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_font_select.xml"
+            line="7"
+            column="5"
+            startOffset="259"
+            endLine="7"
+            endColumn="53"
+            endOffset="307"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_rhyme.xml"
+            line="7"
+            column="5"
+            startOffset="259"
+            endLine="7"
+            endColumn="53"
+            endOffset="307"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_settings.xml"
+            line="6"
+            column="5"
+            startOffset="222"
+            endLine="6"
+            endColumn="53"
+            endOffset="270"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/classical_background` with a theme that also paints a background (inferred theme is `@style/Theme_PoemAI_Classical`)">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_share.xml"
+            line="7"
+            column="5"
+            startOffset="259"
+            endLine="7"
+            endColumn="53"
+            endOffset="307"/>
+    </incident>
+
+</incidents>

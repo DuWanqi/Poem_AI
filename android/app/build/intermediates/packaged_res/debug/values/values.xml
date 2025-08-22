@@ -5,8 +5,9 @@
     <color name="classical_background">#F5F5DC</color>
     <color name="classical_primary">#3B8D6F</color>
     <color name="classical_secondary">#D4A345</color>
+    <color name="classical_secondary_text">#757575</color>
     <color name="classical_text">#3D3D3D</color>
-    <color name="dark_red">#8B0000</color>
+    <color name="dark_red">#800000</color>
     <color name="gold">#FFD700</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
@@ -15,7 +16,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
     <string name="api_key">API密钥</string>
-    <string name="app_name">诗词AI</string>
+    <string name="app_name">诗风</string>
     <string name="btn_back">返回</string>
     <string name="btn_recommended">词牌推荐</string>
     <string name="cancel">取消</string>
@@ -28,7 +29,9 @@
     <string name="delete">删除</string>
     <string name="edit">编辑</string>
     <string name="enter_text">请输入文本内容</string>
+    <string name="help">帮助</string>
     <string name="horizontal">横排</string>
+    <string name="how_to_use">如何使用</string>
     <string name="login">登录</string>
     <string name="logout">退出登录</string>
     <string name="my_works">我的作品</string>
@@ -44,7 +47,7 @@
     <string name="title">标题</string>
     <string name="username">用户名</string>
     <string name="vertical">竖排</string>
-    <string name="welcome">欢迎使用诗词AI</string>
+    <string name="welcome">诗风</string>
     <string name="your_content">您的内容：</string>
     <style name="CalligraphyTextStyle" parent="TextAppearance.AppCompat">
         <item name="android:textSize">42sp</item>

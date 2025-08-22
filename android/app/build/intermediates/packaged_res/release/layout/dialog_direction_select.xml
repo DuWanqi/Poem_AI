@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/classical_background">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_direction"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/classical_text"
+        android:layout_marginBottom="16dp"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/btnHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/horizontal"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_primary"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnVertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/vertical"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_primary"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnCloseDirection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/close"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_accent" />
+
+</LinearLayout>

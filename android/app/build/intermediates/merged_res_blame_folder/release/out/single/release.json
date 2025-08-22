@@ -1,0 +1,162 @@
+[
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_activity_register.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/activity_register.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/drawable_heroic_background.xml.flat",
+        "source": "com.example.poemai.app-main-30:/drawable/heroic_background.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_activity_poem_display.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/activity_poem_display.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_activity_poem_compose.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/activity_poem_compose.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_dialog_ai_completion.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/dialog_ai_completion.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_dialog_settings.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/dialog_settings.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_dialog_rhyme.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/dialog_rhyme.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_activity_gallery.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/activity_gallery.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_activity_main.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/drawable_mountain_background.xml.flat",
+        "source": "com.example.poemai.app-main-30:/drawable/mountain_background.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_item_cipai.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/item_cipai.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/menu_main_menu.xml.flat",
+        "source": "com.example.poemai.app-main-30:/menu/main_menu.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/drawable_ic_launcher_round.png.flat",
+        "source": "com.example.poemai.app-main-30:/drawable/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/drawable_blank_background.xml.flat",
+        "source": "com.example.poemai.app-main-30:/drawable/blank_background.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/drawable_ic_launcher.png.flat",
+        "source": "com.example.poemai.app-main-30:/drawable/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/raw_api_guide.txt.flat",
+        "source": "com.example.poemai.app-main-30:/raw/api_guide.txt"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/anim_slide_in.xml.flat",
+        "source": "com.example.poemai.app-main-30:/anim/slide_in.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/drawable_ic_logout.xml.flat",
+        "source": "com.example.poemai.app-main-30:/drawable/ic_logout.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_item_work.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/item_work.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/anim_fade_in.xml.flat",
+        "source": "com.example.poemai.app-main-30:/anim/fade_in.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_activity_card_create.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/activity_card_create.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/drawable_red_solid_background.xml.flat",
+        "source": "com.example.poemai.app-main-30:/drawable/red_solid_background.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/xml_network_security_config.xml.flat",
+        "source": "com.example.poemai.app-main-30:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_activity_launch.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/activity_launch.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_dialog_api_guide.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/dialog_api_guide.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/drawable_calligraphy_text.xml.flat",
+        "source": "com.example.poemai.app-main-30:/drawable/calligraphy_text.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_activity_work_display.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/activity_work_display.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_dialog_api_key.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/dialog_api_key.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_dialog_background_select.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/dialog_background_select.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/xml_backup_rules.xml.flat",
+        "source": "com.example.poemai.app-main-30:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/drawable_classical_text_background.xml.flat",
+        "source": "com.example.poemai.app-main-30:/drawable/classical_text_background.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_dialog_direction_select.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/dialog_direction_select.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_activity_card_generate.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/activity_card_generate.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/raw_certificate.crt.flat",
+        "source": "com.example.poemai.app-main-30:/raw/certificate.crt"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/drawable_elegant_background.xml.flat",
+        "source": "com.example.poemai.app-main-30:/drawable/elegant_background.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_activity_login.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_dialog_font_select.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/dialog_font_select.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_dialog_share.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/dialog_share.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/layout_activity_cipai_recommend.xml.flat",
+        "source": "com.example.poemai.app-main-30:/layout/activity_cipai_recommend.xml"
+    },
+    {
+        "merged": "com.example.poemai.app-merged_res-29:/drawable_dark_solid_background.xml.flat",
+        "source": "com.example.poemai.app-main-30:/drawable/dark_solid_background.xml"
+    }
+]

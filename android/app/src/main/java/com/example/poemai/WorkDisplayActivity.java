@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.poemai.utils.PreferencesManager;
-import com.example.poemai.network.RetrofitClient;
+import com.example.poemai.service.BackendService;
 import com.google.gson.Gson;
 
 import java.util.Map;
@@ -26,6 +26,7 @@ public class WorkDisplayActivity extends AppCompatActivity {
     private ImageButton btnMore;
     private PreferencesManager preferencesManager;
     private Map<String, Object> workData;
+    private BackendService backendService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class WorkDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_work_display);
 
         preferencesManager = new PreferencesManager(this);
+        backendService = BackendService.getInstance(this);
         
         initViews();
         loadWorkData();
@@ -92,23 +94,40 @@ public class WorkDisplayActivity extends AppCompatActivity {
     private void editWork() {
         if (workData != null) {
             String workType = (String) workData.get("workType");
-            if ("raw_card".equals(workType)) {
-                // 编辑原始卡片，进入卡片创作界面
+            // 支持raw_card和template_poem类型的作品编辑
+            if ("raw_card".equals(workType) || "template_poem".equals(workType)) {
+                // 编辑原始卡片或诗词模板，进入卡片创作界面
                 Intent intent = new Intent(WorkDisplayActivity.this, CardCreateActivity.class);
                 Gson gson = new Gson();
                 String workDataJson = gson.toJson(workData);
-                intent.putExtra("work_data_json", workDataJson);
-                startActivity(intent);
+                
+                // 验证数据有效性
+                if (workDataJson != null && !workDataJson.isEmpty()) {
+                    intent.putExtra("work_data_json", workDataJson);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(this, "作品数据为空，无法编辑", Toast.LENGTH_SHORT).show();
+                }
             } else {
                 // 其他类型作品的编辑逻辑
                 Toast.makeText(this, "该类型作品暂不支持编辑", Toast.LENGTH_SHORT).show();
             }
+        } else {
+            Toast.makeText(this, "无法获取作品数据", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void generateWork() {
-        // 显示分享对话框（即卡片生成页面）
-        showShareDialog();
+        if (workData != null) {
+            String content = (String) workData.get("content");
+            if (content != null) {
+                Intent intent = new Intent(WorkDisplayActivity.this, CardGenerateActivity.class);
+                intent.putExtra("content", content);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "作品内容为空", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void showShareDialog() {
@@ -156,22 +175,22 @@ public class WorkDisplayActivity extends AppCompatActivity {
         backgroundDialog.setContentView(R.layout.dialog_background_select);
         
         // 初始化背景选择对话框中的控件
-        View btnElegant = backgroundDialog.findViewById(R.id.btnElegant);
-        View btnHeroic = backgroundDialog.findViewById(R.id.btnHeroic);
+//        View btnElegant = backgroundDialog.findViewById(R.id.btnElegant);
+//        View btnHeroic = backgroundDialog.findViewById(R.id.btnHeroic);
         View btnBlank = backgroundDialog.findViewById(R.id.btnBlank);
         View btnRedSolid = backgroundDialog.findViewById(R.id.btnRedSolid);
         View btnDarkSolid = backgroundDialog.findViewById(R.id.btnDarkSolid);
         View btnImportBackground = backgroundDialog.findViewById(R.id.btnImportBackground);
         View btnCloseBackground = backgroundDialog.findViewById(R.id.btnCloseBackground);
         
-        // 设置按钮点击事件
-        btnElegant.setOnClickListener(v -> {
-            Toast.makeText(this, "选择婉约风格背景", Toast.LENGTH_SHORT).show();
-        });
-        
-        btnHeroic.setOnClickListener(v -> {
-            Toast.makeText(this, "选择豪放风格背景", Toast.LENGTH_SHORT).show();
-        });
+//        // 设置按钮点击事件
+//        btnElegant.setOnClickListener(v -> {
+//            Toast.makeText(this, "选择婉约风格背景", Toast.LENGTH_SHORT).show();
+//        });
+//
+//        btnHeroic.setOnClickListener(v -> {
+//            Toast.makeText(this, "选择豪放风格背景", Toast.LENGTH_SHORT).show();
+//        });
         
         btnBlank.setOnClickListener(v -> {
             Toast.makeText(this, "选择空白风格背景", Toast.LENGTH_SHORT).show();
@@ -221,23 +240,17 @@ public class WorkDisplayActivity extends AppCompatActivity {
             
             Long workId = workIdDouble.longValue();
 
-            Call<Void> call = RetrofitClient.getInstance().getApiService().deleteWork("Bearer " + token, workId);
-            call.enqueue(new Callback<Void>() {
-                @Override
-                public void onResponse(Call<Void> call, Response<Void> response) {
-                    if (response.isSuccessful()) {
-                        Toast.makeText(WorkDisplayActivity.this, "作品删除成功", Toast.LENGTH_SHORT).show();
-                        finish(); // 返回上一页
-                    } else {
-                        Toast.makeText(WorkDisplayActivity.this, "删除失败: " + response.message(), Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<Void> call, Throwable t) {
-                    Toast.makeText(WorkDisplayActivity.this, "网络错误: " + t.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            });
+            long userId = preferencesManager.getUserId();
+            
+            // 使用BackendService删除作品
+            BackendService.Result<String> result = backendService.deleteWork(workId, userId);
+            if (result.getCode() == 200) {
+                Toast.makeText(WorkDisplayActivity.this, "作品删除成功", Toast.LENGTH_SHORT).show();
+                setResult(RESULT_OK);
+                finish(); // 返回上一页
+            } else {
+                Toast.makeText(WorkDisplayActivity.this, "删除失败: " + result.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.poemai">
+    xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -11,7 +16,9 @@
         android:roundIcon="@drawable/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PoemAI"
-        android:networkSecurityConfig="@xml/network_security_config"> <!-- 确认此处引用正确 -->
+        android:networkSecurityConfig="@xml/network_security_config"
+        tools:targetApi="31">
+        
         <activity
             android:name=".LaunchActivity"
             android:exported="true"
@@ -21,33 +28,55 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity
             android:name=".MainActivity"
+            android:exported="false"
             android:theme="@style/Theme.PoemAI.Classical" />
+            
         <activity
             android:name=".LoginActivity"
+            android:exported="false"
             android:theme="@style/Theme.PoemAI.Classical" />
-        <!-- 添加 RegisterActivity 的声明 -->
+            
         <activity
             android:name=".RegisterActivity"
+            android:exported="false"
             android:theme="@style/Theme.PoemAI.Classical" />
+            
         <activity
             android:name=".CardCreateActivity"
+            android:exported="false"
             android:theme="@style/Theme.PoemAI.Classical" />
+            
         <activity
             android:name=".CiPaiRecommendActivity"
+            android:exported="false"
             android:theme="@style/Theme.PoemAI.Classical" />
+            
         <activity
             android:name=".PoemDisplayActivity"
+            android:exported="false"
             android:theme="@style/Theme.PoemAI.Classical" />
+            
         <activity
             android:name=".WorkDisplayActivity"
+            android:exported="false"
             android:theme="@style/Theme.PoemAI.Classical" />
-        <activity android:name=".PoemComposeActivity" />
+            
+        <activity
+            android:name=".PoemComposeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PoemAI.Classical" />
+            
         <activity
             android:name=".CardGenerateActivity"
             android:exported="false"
             android:theme="@style/Theme.PoemAI.Classical" />
+            
+        <activity
+            android:name=".GalleryActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PoemAI.Classical" />
     </application>
-
 </manifest>

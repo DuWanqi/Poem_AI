@@ -7,6 +7,7 @@ color classical_accent
 color classical_background
 color classical_primary
 color classical_secondary
+color classical_secondary_text
 color classical_text
 color dark_red
 color gold
@@ -18,6 +19,7 @@ color teal_700
 color white
 drawable blank_background
 drawable calligraphy_text
+drawable classical_text_background
 drawable dark_solid_background
 drawable elegant_background
 drawable heroic_background
@@ -49,11 +51,11 @@ id btnComplete
 id btnCreateCard
 id btnDarkSolid
 id btnDefault
-id btnElegant
 id btnFangSong
 id btnFontSizeDecrease
 id btnFontSizeIncrease
-id btnHeroic
+id btnHelp
+id btnHome
 id btnHorizontal
 id btnImportBackground
 id btnImportFont
@@ -123,7 +125,6 @@ id tvRegister
 id tvRhymeResults
 id tvSharePreview
 id tvTitle
-id tvType
 id tvWorkContent
 id tvWorkTitle
 layout activity_card_create
@@ -151,6 +152,7 @@ layout item_work
 menu main_menu
 raw api_guide
 raw certificate
+raw help
 string api_key
 string app_name
 string btn_back
@@ -165,7 +167,9 @@ string create_card
 string delete
 string edit
 string enter_text
+string help
 string horizontal
+string how_to_use
 string login
 string logout
 string my_works

@@ -10,14 +10,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.poemai.model.LoginResponse;
-import com.example.poemai.model.RegisterRequest;
-import com.example.poemai.network.RetrofitClient;
+import com.example.poemai.service.BackendService;
 import com.example.poemai.utils.PreferencesManager;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = "RegisterActivity";
@@ -25,6 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button btnRegister;
     private TextView tvLogin;
     private PreferencesManager preferencesManager;
+    private BackendService backendService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         preferencesManager = new PreferencesManager(this);
+        backendService = BackendService.getInstance(this);
         
         Log.d(TAG, "onCreate: token = " + preferencesManager.getToken());
         
@@ -73,45 +71,23 @@ public class RegisterActivity extends AppCompatActivity {
 
         btnRegister.setEnabled(false);
         
-        try {
-            RegisterRequest request = new RegisterRequest(username, password);
-            Call<LoginResponse> call = RetrofitClient.getInstance().getApiService().register(request);
-            call.enqueue(new Callback<LoginResponse>() {
-                @Override
-                public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                    btnRegister.setEnabled(true);
-                    
-                    if (response.isSuccessful() && response.body() != null) {
-                        LoginResponse registerResponse = response.body();
-                        
-                        if (registerResponse.getToken() != null) {
-                            // 注册成功
-                            Log.d(TAG, "注册成功，token = " + registerResponse.getToken());
-                            preferencesManager.saveAuthToken(registerResponse.getToken(), registerResponse.getUserId());
-                            Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
-                            finish();
-                        } else {
-                            // 注册失败
-                            Log.d(TAG, "注册失败: " + registerResponse.getError());
-                            Toast.makeText(RegisterActivity.this, "注册失败: " + registerResponse.getError(), Toast.LENGTH_LONG).show();
-                        }
-                    } else {
-                        Log.d(TAG, "注册失败，请稍后重试");
-                        Toast.makeText(RegisterActivity.this, "注册失败，请稍后重试", Toast.LENGTH_LONG).show();
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<LoginResponse> call, Throwable t) {
-                    btnRegister.setEnabled(true);
-                    Log.e(TAG, "网络错误", t);
-                    Toast.makeText(RegisterActivity.this, "网络错误: " + t.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            });
-        } catch (Exception e) {
-            btnRegister.setEnabled(true);
-            Log.e(TAG, "注册过程出现错误", e);
-            Toast.makeText(this, "注册过程出现错误: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        // 使用本地BackendService进行注册
+        BackendService.Result<Map<String, Object>> result = backendService.register(username, password);
+        
+        btnRegister.setEnabled(true);
+        
+        if (result.getCode() == 200 && result.getData() != null) {
+            Map<String, Object> data = result.getData();
+            String token = (String) data.get("token");
+            Long userId = (Long) data.get("userId");
+            
+            Log.d(TAG, "注册成功，token = " + token);
+            preferencesManager.saveAuthToken(token, userId);
+            Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+            finish();
+        } else {
+            Log.d(TAG, "注册失败: " + result.getMessage());
+            Toast.makeText(RegisterActivity.this, "注册失败: " + result.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 }

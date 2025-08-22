@@ -1,0 +1,895 @@
+D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:6: Warning: READ_EXTERNAL_STORAGE is deprecated (and is not granted) when targeting Android 13+. If you need to query or interact with MediaStore or media files on the shared storage, you should instead use one or more new storage permissions: READ_MEDIA_IMAGES, READ_MEDIA_VIDEO or READ_MEDIA_AUDIO. [ScopedStorage]
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:7: Warning: WRITE_EXTERNAL_STORAGE is deprecated (and is not granted) when targeting Android 13+. If you need to write to shared storage, use the MediaStore.createWriteRequest intent. [ScopedStorage]
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ScopedStorage":
+   Scoped storage is enforced on Android 10+ (or Android 11+ if using
+   requestLegacyExternalStorage). In particular, WRITE_EXTERNAL_STORAGE will
+   no longer provide write access to all files; it will provide the equivalent
+   of READ_EXTERNAL_STORAGE instead.
+
+   As of Android 13, if you need to query or interact with MediaStore or media
+   files on the shared storage, you should be using instead one or more new
+   storage permissions:
+   * android.permission.READ_MEDIA_IMAGES
+   * android.permission.READ_MEDIA_VIDEO
+   * android.permission.READ_MEDIA_AUDIO
+
+   and then add maxSdkVersion="33" to the older permission. See the developer
+   guide for how to do this:
+   https://developer.android.com/about/versions/13/behavior-changes-13#granula
+   r-media-permissions
+
+   The MANAGE_EXTERNAL_STORAGE permission can be used to manage all files, but
+   it is rarely necessary and most apps on Google Play are not allowed to use
+   it. Most apps should instead migrate to use scoped storage. To modify or
+   delete files, apps should request write access from the user as described
+   at https://goo.gle/android-mediastore-createwriterequest.
+
+   To learn more, read these resources: Play policy:
+   https://goo.gle/policy-storage-help Allowable use cases:
+   https://goo.gle/policy-storage-usecases
+
+   https://goo.gle/android-storage-usecases
+
+D:\projects\Poem_AI_F\android\app\src\main\java\com\example\poemai\CardGenerateActivity.java:401: Warning: Calling setType after setting URI in Intent constructor will clear the data: Call setDataAndType instead? [IntentReset]
+        intent.setType("image/*");
+               ~~~~~~~~~~~~~~~~~~
+    D:\projects\Poem_AI_F\android\app\src\main\java\com\example\poemai\CardGenerateActivity.java:400: Originally set here
+D:\projects\Poem_AI_F\android\app\src\main\java\com\example\poemai\PoemComposeActivity.java:708: Warning: Calling setType after setting URI in Intent constructor will clear the data: Call setDataAndType instead? [IntentReset]
+        intent.setType("image/*");
+               ~~~~~~~~~~~~~~~~~~
+    D:\projects\Poem_AI_F\android\app\src\main\java\com\example\poemai\PoemComposeActivity.java:707: Originally set here
+
+   Explanation for issues of type "IntentReset":
+   Intent provides the following APIs: setData(Uri) and setType(String).
+   Unfortunately, setting one clears the other. If you want to set both, you
+   should call setDataAndType(Uri, String) instead.
+
+D:\projects\Poem_AI_F\android\app\build.gradle:11: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]
+        targetSdkVersion 34
+        ~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "OldTargetApi":
+   When your application runs on a version of Android that is more recent than
+   your targetSdkVersion specifies that it has been tested with, various
+   compatibility modes kick in. This ensures that your application continues
+   to work, but it may look out of place. For example, if the targetSdkVersion
+   is less than 14, your app may get an option button in the UI.
+
+   To fix this issue, set the targetSdkVersion to the highest available value.
+   Then test your app to make sure everything works correctly. You may want to
+   consult the compatibility notes to see what changes apply to each version
+   you are adding support for:
+   https://developer.android.com/reference/android/os/Build.VERSION_CODES.html
+   as well as follow this guide:
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.
+   html
+
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.html
+
+D:\projects\Poem_AI_F\android\app\src\main\res\drawable\elegant_background.xml:14: Warning: Attribute width is only used in API level 23 and higher (current min is 21) [UnusedAttribute]
+        android:width="60dp"
+        ~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\drawable\elegant_background.xml:15: Warning: Attribute height is only used in API level 23 and higher (current min is 21) [UnusedAttribute]
+        android:height="60dp">
+        ~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\drawable\elegant_background.xml:54: Warning: Attribute width is only used in API level 23 and higher (current min is 21) [UnusedAttribute]
+        android:width="80dp"
+        ~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\drawable\elegant_background.xml:55: Warning: Attribute height is only used in API level 23 and higher (current min is 21) [UnusedAttribute]
+        android:height="80dp">
+        ~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\drawable\heroic_background.xml:14: Warning: Attribute width is only used in API level 23 and higher (current min is 21) [UnusedAttribute]
+        android:width="100dp"
+        ~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\drawable\heroic_background.xml:15: Warning: Attribute height is only used in API level 23 and higher (current min is 21) [UnusedAttribute]
+        android:height="80dp">
+        ~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\drawable\heroic_background.xml:54: Warning: Attribute width is only used in API level 23 and higher (current min is 21) [UnusedAttribute]
+        android:width="100dp"
+        ~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\drawable\heroic_background.xml:55: Warning: Attribute height is only used in API level 23 and higher (current min is 21) [UnusedAttribute]
+        android:height="40dp">
+        ~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedAttribute":
+   This check finds attributes set in XML files that were introduced in a
+   version newer than the oldest version targeted by your application (with
+   the minSdkVersion attribute).
+
+   This is not an error; the application will simply ignore the attribute.
+   However, if the attribute is important to the appearance or functionality
+   of your application, you should consider finding an alternative way to
+   achieve the same result with only available attributes, and then you can
+   optionally create a copy of the layout in a layout-vNN folder which will be
+   used on API NN or higher where you can take advantage of the newer
+   attribute.
+
+   Note: This check does not only apply to attributes. For example, some tags
+   can be unused too, such as the new <tag> element in layouts introduced in
+   API 21.
+
+D:\projects\Poem_AI_F\android\app\src\main\java\com\example\poemai\LaunchActivity.java:16: Warning: The application should not provide its own launch screen [CustomSplashScreen]
+public class LaunchActivity extends AppCompatActivity {
+             ~~~~~~~~~~~~~~
+
+   Explanation for issues of type "CustomSplashScreen":
+   Starting in Android 12 (API 31+), the application's Launch Screen is
+   provided by the system and the application should not create its own,
+   otherwise the user will see two splashscreens. Please check the
+   SplashScreen class to check how the Splash Screen can be controlled and
+   customized.
+
+   https://developer.android.com/guide/topics/ui/splash-screen
+
+D:\projects\Poem_AI_F\android\app\build.gradle:36: Warning: A newer version of androidx.appcompat:appcompat than 1.4.0 is available: 1.6.1 [GradleDependency]
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\build.gradle:37: Warning: A newer version of com.google.android.material:material than 1.4.0 is available: 1.11.0 [GradleDependency]
+    implementation 'com.google.android.material:material:1.4.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\build.gradle:38: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.2 is available: 2.1.4 [GradleDependency]
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\build.gradle:39: Warning: A newer version of androidx.navigation:navigation-fragment than 2.3.5 is available: 2.6.0 [GradleDependency]
+    implementation 'androidx.navigation:navigation-fragment:2.3.5'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\build.gradle:40: Warning: A newer version of androidx.navigation:navigation-ui than 2.3.5 is available: 2.6.0 [GradleDependency]
+    implementation 'androidx.navigation:navigation-ui:2.3.5'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\build.gradle:43: Warning: A newer version of com.google.code.gson:gson than 2.8.8 is available: 2.10.1 [GradleDependency]
+    implementation 'com.google.code.gson:gson:2.8.8'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\build.gradle:44: Warning: A newer version of androidx.lifecycle:lifecycle-viewmodel than 2.4.0 is available: 2.6.1 [GradleDependency]
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.4.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\build.gradle:45: Warning: A newer version of androidx.lifecycle:lifecycle-runtime than 2.4.0 is available: 2.6.1 [GradleDependency]
+    implementation 'androidx.lifecycle:lifecycle-runtime:2.4.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\build.gradle:46: Warning: A newer version of androidx.activity:activity than 1.4.0 is available: 1.8.0 [GradleDependency]
+    implementation 'androidx.activity:activity:1.4.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\build.gradle:47: Warning: A newer version of com.squareup.okhttp3:logging-interceptor than 4.9.0 is available: 4.12.0 [GradleDependency]
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\build.gradle:61: Warning: A newer version of androidx.test.ext:junit than 1.1.3 is available: 1.1.5 [GradleDependency]
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\build.gradle:62: Warning: A newer version of androidx.test.espresso:espresso-core than 3.4.0 is available: 3.5.1 [GradleDependency]
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+D:\projects\Poem_AI_F\android\app\build.gradle:60: Warning: Avoid using + in version numbers; can lead to unpredictable and unrepeatable builds (junit:junit:4.+) [GradleDynamicVersion]
+    testImplementation 'junit:junit:4.+'
+                       ~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDynamicVersion":
+   Using + in dependencies lets you automatically pick up the latest available
+   version rather than a specific, named version. However, this is not
+   recommended; your builds are not repeatable; you may have tested with a
+   slightly different version than what the build server used. (Using a
+   dynamic version as the major version number is more problematic than using
+   it in the minor version position.)
+
+D:\projects\Poem_AI_F\android\app\src\main\AndroidManifest.xml:13: Warning: The attribute android:fullBackupContent is deprecated from Android 12 and higher and may be removed in future versions. Consider adding the attribute android:dataExtractionRules specifying an @xml resource which configures cloud backups and device transfers on Android 12 and higher. [DataExtractionRules]
+        android:fullBackupContent="@xml/backup_rules"
+                                   ~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "DataExtractionRules":
+   Before Android 12, the attributes android:allowBackup and
+   android:fullBackupContent were used to configure all forms of backup,
+   including cloud backups, device-to-device transfers and adb backup.
+
+   In Android 12 and higher, these attributes have been deprecated and will
+   only apply to cloud backups. You should instead use the attribute
+   android:dataExtractionRules, specifying an @xml resource that configures
+   which files to back up, for cloud backups and for device-to-device
+   transfers, separately. If your minSdkVersion supports older versions,
+   you'll still want to specify an android:fullBackupContent resource if the
+   default behavior is not right for your app.
+
+   https://developer.android.com/about/versions/12/backup-restore#xml-changes
+   https://goo.gle/DataExtractionRules
+
+D:\projects\Poem_AI_F\android\app\src\main\java\com\example\poemai\CiPaiRecommendActivity.java:121: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+                ciPaiAdapter.notifyDataSetChanged();
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\java\com\example\poemai\GalleryActivity.java:68: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+        workAdapter.notifyDataSetChanged();
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\java\com\example\poemai\MainActivity.java:147: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+                        runOnUiThread(() -> workAdapter.notifyDataSetChanged());
+                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "NotifyDataSetChanged":
+   The RecyclerView adapter's onNotifyDataSetChanged method does not specify
+   what about the data set has changed, forcing any observers to assume that
+   all existing items and structure may no longer be valid. `LayoutManager`s
+   will be forced to fully rebind and relayout all visible views.
+
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_card_generate.xml:47: Warning: Nested weights are bad for performance [NestedWeights]
+            android:layout_weight="1"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:198: Warning: Nested weights are bad for performance [NestedWeights]
+            android:layout_weight="1">
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "NestedWeights":
+   Layout weights require a widget to be measured twice. When a LinearLayout
+   with non-zero weights is nested inside another LinearLayout with non-zero
+   weights, then the number of measurements increase exponentially.
+
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_card_create.xml:8: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_card_generate.xml:9: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_cipai_recommend.xml:9: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_login.xml:9: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_main.xml:7: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:9: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_display.xml:9: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_register.xml:9: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_work_display.xml:7: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_ai_completion.xml:7: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_api_guide.xml:7: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_api_key.xml:7: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_background_select.xml:7: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_direction_select.xml:7: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_font_select.xml:7: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_rhyme.xml:7: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_settings.xml:6: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_share.xml:7: Warning: Possible overdraw: Root element paints background @color/classical_background with a theme that also paints a background (inferred theme is @style/Theme_PoemAI_Classical) [Overdraw]
+    android:background="@color/classical_background">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Overdraw":
+   If you set a background drawable on a root view, then you should use a
+   custom theme where the theme background is null. Otherwise, the theme
+   background will be painted first, only to have your custom background
+   completely cover it; this is called "overdraw".
+
+   NOTE: This detector relies on figuring out which layouts are associated
+   with which activities based on scanning the Java code, and it's currently
+   doing that using an inexact pattern matching algorithm. Therefore, it can
+   incorrectly conclude which activity the layout is associated with and then
+   wrongly complain that a background-theme is hidden.
+
+   If you want your custom background on multiple pages, then you should
+   consider making a custom theme with your custom background and just using
+   that theme instead of a root element background.
+
+   Of course it's possible that your custom drawable is translucent and you
+   want it to be mixed with the background. However, you will get better
+   performance if you pre-mix the background with your drawable and use that
+   resulting image or color as a custom theme background instead.
+
+D:\projects\Poem_AI_F\android\app\src\main\res\drawable\calligraphy_text.xml:2: Warning: The resource R.drawable.calligraphy_text appears to be unused [UnusedResources]
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+^
+D:\projects\Poem_AI_F\android\app\src\main\res\raw\certificate.crt: Warning: The resource R.raw.certificate appears to be unused [UnusedResources]
+D:\projects\Poem_AI_F\android\app\src\main\res\drawable\classical_text_background.xml:2: Warning: The resource R.drawable.classical_text_background appears to be unused [UnusedResources]
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+^
+D:\projects\Poem_AI_F\android\app\src\main\res\values\colors.xml:4: Warning: The resource R.color.purple_500 appears to be unused [UnusedResources]
+    <color name="purple_500">#FF6200EE</color>
+           ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\values\colors.xml:17: Warning: The resource R.color.classical_secondary_text appears to be unused [UnusedResources]
+    <color name="classical_secondary_text">#757575</color> <!-- 次要文字颜色 -->
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\values\strings.xml:10: Warning: The resource R.string.my_works appears to be unused [UnusedResources]
+    <string name="my_works">我的作品</string>
+            ~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\values\strings.xml:11: Warning: The resource R.string.compose_poem appears to be unused [UnusedResources]
+    <string name="compose_poem">创作诗词</string>
+            ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\values\strings.xml:17: Warning: The resource R.string.cancel appears to be unused [UnusedResources]
+    <string name="cancel">取消</string>
+            ~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\values\strings.xml:18: Warning: The resource R.string.delete appears to be unused [UnusedResources]
+    <string name="delete">删除</string>
+            ~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\values\strings.xml:19: Warning: The resource R.string.edit appears to be unused [UnusedResources]
+    <string name="edit">编辑</string>
+            ~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\values\strings.xml:20: Warning: The resource R.string.title appears to be unused [UnusedResources]
+    <string name="title">标题</string>
+            ~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\values\strings.xml:21: Warning: The resource R.string.content appears to be unused [UnusedResources]
+    <string name="content">内容</string>
+            ~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\values\strings.xml:22: Warning: The resource R.string.prompt appears to be unused [UnusedResources]
+    <string name="prompt">提示词</string>
+            ~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\values\strings.xml:23: Warning: The resource R.string.complete_poem appears to be unused [UnusedResources]
+    <string name="complete_poem">补全诗词</string>
+            ~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\values\strings.xml:24: Warning: The resource R.string.api_key appears to be unused [UnusedResources]
+    <string name="api_key">API密钥</string>
+            ~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\values\strings.xml:25: Warning: The resource R.string.save_api_key appears to be unused [UnusedResources]
+    <string name="save_api_key">保存API密钥</string>
+            ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\values\strings.xml:27: Warning: The resource R.string.search_rhyme appears to be unused [UnusedResources]
+    <string name="search_rhyme">查询押韵字</string>
+            ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\values\strings.xml:28: Warning: The resource R.string.rhyme_word appears to be unused [UnusedResources]
+    <string name="rhyme_word">押韵字</string>
+            ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\values\styles.xml:4: Warning: The resource R.style.CalligraphyTextStyle appears to be unused [UnusedResources]
+    <style name="CalligraphyTextStyle" parent="TextAppearance.AppCompat">
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+D:\projects\Poem_AI_F\android\app\src\main\res\drawable\ic_launcher.png: Warning: Launcher icons should not fill every pixel of their square region; see the design guide for details [IconLauncherShape]
+D:\projects\Poem_AI_F\android\app\src\main\res\drawable\ic_launcher_round.png: Warning: Launcher icon used as round icon did not have a circular shape [IconLauncherShape]
+
+   Explanation for issues of type "IconLauncherShape":
+   According to the Android Design Guide
+   (https://d.android.com/r/studio-ui/designer/material/iconography) your
+   launcher icons should "use a distinct silhouette", a "three-dimensional,
+   front view, with a slight perspective as if viewed from above, so that
+   users perceive some depth."
+
+   The unique silhouette implies that your launcher icon should not be a
+   filled square.
+
+D:\projects\Poem_AI_F\android\app\src\main\res\drawable\ic_launcher.png: Warning: Found bitmap drawable res/drawable/ic_launcher.png in densityless folder [IconLocation]
+D:\projects\Poem_AI_F\android\app\src\main\res\drawable\ic_launcher_round.png: Warning: Found bitmap drawable res/drawable/ic_launcher_round.png in densityless folder [IconLocation]
+
+   Explanation for issues of type "IconLocation":
+   The res/drawable folder is intended for density-independent graphics such
+   as shapes defined in XML. For bitmaps, move it to drawable-mdpi and
+   consider providing higher and lower resolution versions in drawable-ldpi,
+   drawable-hdpi and drawable-xhdpi. If the icon really is density independent
+   (for example a solid color) you can place it in drawable-nodpi.
+
+   https://developer.android.com/guide/practices/screens_support.html
+
+D:\projects\Poem_AI_F\android\app\src\main\res\drawable\ic_launcher_round.png: Warning: The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png [IconDuplicates]
+
+   Explanation for issues of type "IconDuplicates":
+   If an icon is repeated under different names, you can consolidate and just
+   use one of the icons and delete the others to make your application
+   smaller. However, duplicated icons usually are not intentional and can
+   sometimes point to icons that were accidentally overwritten or accidentally
+   not updated.
+
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_card_generate.xml:71: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+        <Button
+         ~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_card_generate.xml:82: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+        <Button
+         ~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_api_key.xml:66: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+        <Button
+         ~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_api_key.xml:76: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+        <Button
+         ~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_settings.xml:127: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+            <Button
+             ~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_settings.xml:134: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+            <Button
+             ~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_settings.xml:142: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+            <Button
+             ~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_settings.xml:149: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+            <Button
+             ~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_share.xml:63: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+        <Button
+         ~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_share.xml:73: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+        <Button
+         ~~~~~~
+
+   Explanation for issues of type "ButtonStyle":
+   Button bars typically use a borderless style for the buttons. Set the
+   style="?android:attr/buttonBarButtonStyle" attribute on each of the
+   buttons, and set style="?android:attr/buttonBarStyle" on the parent layout
+
+   https://d.android.com/r/studio-ui/designer/material/dialogs
+
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:73: Warning: This text field does not specify an inputType [TextFields]
+            <EditText
+             ~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:86: Warning: This text field does not specify an inputType [TextFields]
+            <EditText
+             ~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_rhyme.xml:20: Warning: This text field does not specify an inputType [TextFields]
+    <EditText
+     ~~~~~~~~
+
+   Explanation for issues of type "TextFields":
+   Providing an inputType attribute on a text field improves usability because
+   depending on the data to be input, optimized keyboards can be shown to the
+   user (such as just digits and parentheses for a phone number). 
+
+   The lint detector also looks at the id of the view, and if the id offers a
+   hint of the purpose of the field (for example, the id contains the phrase
+   phone or email), then lint will also ensure that the inputType contains the
+   corresponding type attributes.
+
+   If you really want to keep the text field generic, you can suppress this
+   warning by setting inputType="text".
+
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\item_work.xml:69: Warning: Avoid using sizes smaller than 11sp: 10sp [SmallSp]
+                android:textSize="10sp"
+                ~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SmallSp":
+   Avoid using sizes smaller than 11sp.
+
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_login.xml:30: Warning: Missing autofillHints attribute [Autofill]
+        <EditText
+         ~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_login.xml:49: Warning: Missing autofillHints attribute [Autofill]
+        <EditText
+         ~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:73: Warning: Missing autofillHints attribute [Autofill]
+            <EditText
+             ~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:86: Warning: Missing autofillHints attribute [Autofill]
+            <EditText
+             ~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_register.xml:30: Warning: Missing autofillHints attribute [Autofill]
+        <EditText
+         ~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_register.xml:49: Warning: Missing autofillHints attribute [Autofill]
+        <EditText
+         ~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_register.xml:68: Warning: Missing autofillHints attribute [Autofill]
+        <EditText
+         ~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_ai_completion.xml:39: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_api_key.xml:29: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_rhyme.xml:20: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+
+   Explanation for issues of type "Autofill":
+   Specify an autofillHints attribute when targeting SDK version 26 or higher
+   or explicitly specify that the view is not important for autofill. Your app
+   can help an autofill service classify the data correctly by providing the
+   meaning of each view that could be autofillable, such as views representing
+   usernames, passwords, credit card fields, email addresses, etc.
+
+   The hints can have any value, but it is recommended to use predefined
+   values like 'username' for a username or 'creditCardNumber' for a credit
+   card number. For a list of all predefined autofill hint constants, see the
+   AUTOFILL_HINT_ constants in the View reference at
+   https://developer.android.com/reference/android/view/View.html.
+
+   You can mark a view unimportant for autofill by specifying an
+   importantForAutofill attribute on that view or a parent view. See
+   https://developer.android.com/reference/android/view/View.html#setImportant
+   ForAutofill(int).
+
+   https://developer.android.com/guide/topics/text/autofill.html
+
+D:\projects\Poem_AI_F\android\app\src\main\java\com\example\poemai\VerticalTextView.java:88: Warning: Custom view VerticalTextView overrides onTouchEvent but not performClick [ClickableViewAccessibility]
+    public boolean onTouchEvent(MotionEvent event) {
+                   ~~~~~~~~~~~~
+
+   Explanation for issues of type "ClickableViewAccessibility":
+   If a View that overrides onTouchEvent or uses an OnTouchListener does not
+   also implement performClick and call it when clicks are detected, the View
+   may not handle accessibility actions properly. Logic handling the click
+   actions should ideally be placed in View#performClick as some accessibility
+   services invoke performClick when a click action should occur.
+
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_card_generate.xml:34: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageView
+         ~~~~~~~~~
+
+   Explanation for issues of type "ContentDescription":
+   Non-textual widgets like ImageViews and ImageButtons should use the
+   contentDescription attribute to specify a textual description of the widget
+   such that screen readers and other accessibility tools can adequately
+   describe the user interface.
+
+   Note that elements in application screens that are purely decorative and do
+   not provide any content or enable a user action should not have
+   accessibility content descriptions. In this case, set their descriptions to
+   @null. If your app's minSdkVersion is 16 or higher, you can instead set
+   these graphical elements' android:importantForAccessibility attributes to
+   no.
+
+   Note that for text fields, you should not set both the hint and the
+   contentDescription attributes since the hint will never be shown. Just set
+   the hint.
+
+   https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases
+
+D:\projects\Poem_AI_F\android\app\src\main\java\com\example\poemai\PoemComposeActivity.java:470: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            tvRhymeResults.setText("查询失败: " + result.getMessage());
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\java\com\example\poemai\PoemComposeActivity.java:1103: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            tvGuideContent.setText("无法加载API申请指南: " + e.getMessage());
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\java\com\example\poemai\PoemComposeActivity.java:1103: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            tvGuideContent.setText("无法加载API申请指南: " + e.getMessage());
+                                   ~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\java\com\example\poemai\PoemComposeActivity.java:1150: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            runOnUiThread(() -> tvResult.setText("请先设置API Key"));
+                                                 ~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\java\com\example\poemai\PoemComposeActivity.java:1202: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                runOnUiThread(() -> tvResult.setText("网络错误: " + e.getMessage()));
+                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\java\com\example\poemai\PoemComposeActivity.java:1218: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    runOnUiThread(() -> tvResult.setText("API错误: " + response.code() + "\n" + finalError));
+                                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\java\com\example\poemai\PoemComposeActivity.java:1218: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    runOnUiThread(() -> tvResult.setText("API错误: " + response.code() + "\n" + finalError));
+                                                         ~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\java\com\example\poemai\PoemComposeActivity.java:1266: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    runOnUiThread(() -> tvResult.setText("处理错误: " + e.getMessage()));
+                                                         ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SetTextI18n":
+   When calling TextView#setText
+   * Never call Number#toString() to format numbers; it will not handle
+   fraction separators and locale-specific digits properly. Consider using
+   String#format with proper format specifications (%d or %f) instead.
+   * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded
+   text can not be properly translated to other languages. Consider using
+   Android resource strings instead.
+   * Do not build messages by concatenating text chunks. Such messages can not
+   be properly translated.
+
+   https://developer.android.com/guide/topics/resources/localization.html
+
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_card_generate.xml:15: Warning: Hardcoded string "生成分享卡片", should use @string resource [HardcodedText]
+        android:text="生成分享卡片"
+        ~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_card_generate.xml:59: Warning: Hardcoded string "选择卡片背景", should use @string resource [HardcodedText]
+        android:text="选择卡片背景"
+        ~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_card_generate.xml:76: Warning: Hardcoded string "保存到本地", should use @string resource [HardcodedText]
+            android:text="保存到本地"
+            ~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_card_generate.xml:87: Warning: Hardcoded string "保存到我的作品", should use @string resource [HardcodedText]
+            android:text="保存到我的作品"
+            ~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_card_generate.xml:99: Warning: Hardcoded string "返回", should use @string resource [HardcodedText]
+        android:text="返回"
+        ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_gallery.xml:14: Warning: Hardcoded string "我的作品", should use @string resource [HardcodedText]
+        android:text="我的作品"
+        ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_gallery.xml:32: Warning: Hardcoded string "返回", should use @string resource [HardcodedText]
+        android:text="返回"
+        ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_login.xml:15: Warning: Hardcoded string "用户登录", should use @string resource [HardcodedText]
+        android:text="用户登录"
+        ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_login.xml:73: Warning: Hardcoded string "没有账户？点击注册", should use @string resource [HardcodedText]
+        android:text="没有账户？点击注册"
+        ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:21: Warning: Hardcoded string "创作诗词", should use @string resource [HardcodedText]
+            android:text="创作诗词"
+            ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:35: Warning: Hardcoded string "主页", should use @string resource [HardcodedText]
+            android:contentDescription="主页"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:47: Warning: Hardcoded string "返回", should use @string resource [HardcodedText]
+            android:contentDescription="返回"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:77: Warning: Hardcoded string "作品标题", should use @string resource [HardcodedText]
+                android:hint="作品标题"
+                ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:90: Warning: Hardcoded string "作者", should use @string resource [HardcodedText]
+                android:hint="作者"
+                ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:154: Warning: Hardcoded string "作者", should use @string resource [HardcodedText]
+                    android:hint="作者" />
+                    ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:169: Warning: Hardcoded string "作品标题", should use @string resource [HardcodedText]
+                    android:hint="作品标题" />
+                    ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:188: Warning: Hardcoded string "词牌示例", should use @string resource [HardcodedText]
+            android:text="词牌示例"
+            ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:226: Warning: Hardcoded string "推荐韵脚", should use @string resource [HardcodedText]
+            android:contentDescription="推荐韵脚"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:238: Warning: Hardcoded string "分享", should use @string resource [HardcodedText]
+            android:contentDescription="分享"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:250: Warning: Hardcoded string "设置", should use @string resource [HardcodedText]
+            android:contentDescription="设置"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_compose.xml:262: Warning: Hardcoded string "灵感", should use @string resource [HardcodedText]
+            android:contentDescription="灵感"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_display.xml:16: Warning: Hardcoded string "词牌推荐", should use @string resource [HardcodedText]
+        android:text="词牌推荐"
+        ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_display.xml:37: Warning: Hardcoded string "词牌名：", should use @string resource [HardcodedText]
+                android:text="词牌名："
+                ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_display.xml:56: Warning: Hardcoded string "示例诗词：", should use @string resource [HardcodedText]
+                android:text="示例诗词："
+                ~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_poem_display.xml:82: Warning: Hardcoded string "选择该词牌为模板", should use @string resource [HardcodedText]
+        android:text="选择该词牌为模板"
+        ~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_register.xml:15: Warning: Hardcoded string "用户注册", should use @string resource [HardcodedText]
+        android:text="用户注册"
+        ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_register.xml:92: Warning: Hardcoded string "已有账户？点击登录", should use @string resource [HardcodedText]
+        android:text="已有账户？点击登录"
+        ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_work_display.xml:25: Warning: Hardcoded string "作品展示", should use @string resource [HardcodedText]
+            android:text="作品展示"
+            ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_work_display.xml:38: Warning: Hardcoded string "更多操作", should use @string resource [HardcodedText]
+            android:contentDescription="更多操作" />
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\activity_work_display.xml:73: Warning: Hardcoded string "返回", should use @string resource [HardcodedText]
+            android:text="返回"
+            ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_ai_completion.xml:12: Warning: Hardcoded string "AI补全诗词", should use @string resource [HardcodedText]
+        android:text="AI补全诗词"
+        ~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_ai_completion.xml:24: Warning: Hardcoded string "API Key设置", should use @string resource [HardcodedText]
+        android:text="API Key设置"
+        ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_ai_completion.xml:33: Warning: Hardcoded string "提示词：", should use @string resource [HardcodedText]
+        android:text="提示词："
+        ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_ai_completion.xml:43: Warning: Hardcoded string "请输入提示词", should use @string resource [HardcodedText]
+        android:hint="请输入提示词"
+        ~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_ai_completion.xml:58: Warning: Hardcoded string "开始补全", should use @string resource [HardcodedText]
+        android:text="开始补全"
+        ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_ai_completion.xml:67: Warning: Hardcoded string "补全结果：", should use @string resource [HardcodedText]
+        android:text="补全结果："
+        ~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_ai_completion.xml:85: Warning: Hardcoded string "AI补全结果将在此显示", should use @string resource [HardcodedText]
+            android:text="AI补全结果将在此显示"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_ai_completion.xml:99: Warning: Hardcoded string "关闭", should use @string resource [HardcodedText]
+        android:text="关闭"
+        ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_api_guide.xml:12: Warning: Hardcoded string "API 申请指南", should use @string resource [HardcodedText]
+        android:text="API 申请指南"
+        ~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_api_guide.xml:31: Warning: Hardcoded string "加载中...", should use @string resource [HardcodedText]
+            android:text="加载中..."
+            ~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_api_guide.xml:41: Warning: Hardcoded string "关闭", should use @string resource [HardcodedText]
+        android:text="关闭"
+        ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_api_key.xml:12: Warning: Hardcoded string "API Key设置", should use @string resource [HardcodedText]
+        android:text="API Key设置"
+        ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_api_key.xml:23: Warning: Hardcoded string "DeepSeek API Key：", should use @string resource [HardcodedText]
+        android:text="DeepSeek API Key："
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_api_key.xml:33: Warning: Hardcoded string "请输入API Key", should use @string resource [HardcodedText]
+        android:hint="请输入API Key"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_api_key.xml:46: Warning: Hardcoded string "记住API Key", should use @string resource [HardcodedText]
+        android:text="记住API Key"
+        ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_api_key.xml:55: Warning: Hardcoded string "查看API申请指南", should use @string resource [HardcodedText]
+        android:text="查看API申请指南"
+        ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_api_key.xml:71: Warning: Hardcoded string "保存", should use @string resource [HardcodedText]
+            android:text="保存"
+            ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_api_key.xml:81: Warning: Hardcoded string "关闭", should use @string resource [HardcodedText]
+            android:text="关闭"
+            ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_background_select.xml:12: Warning: Hardcoded string "选择卡片背景", should use @string resource [HardcodedText]
+        android:text="选择卡片背景"
+        ~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_background_select.xml:23: Warning: Hardcoded string "默认背景：", should use @string resource [HardcodedText]
+        android:text="默认背景："
+        ~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_background_select.xml:42: Warning: Hardcoded string "空白风格", should use @string resource [HardcodedText]
+            android:text="空白风格"
+            ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_background_select.xml:52: Warning: Hardcoded string "深红纯色", should use @string resource [HardcodedText]
+            android:text="深红纯色"
+            ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_background_select.xml:62: Warning: Hardcoded string "淡黑纯色", should use @string resource [HardcodedText]
+            android:text="淡黑纯色"
+            ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_background_select.xml:73: Warning: Hardcoded string "导入外部图片", should use @string resource [HardcodedText]
+        android:text="导入外部图片"
+        ~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_background_select.xml:83: Warning: Hardcoded string "关闭", should use @string resource [HardcodedText]
+        android:text="关闭"
+        ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_font_select.xml:12: Warning: Hardcoded string "选择字体", should use @string resource [HardcodedText]
+        android:text="选择字体"
+        ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_font_select.xml:23: Warning: Hardcoded string "系统默认字体", should use @string resource [HardcodedText]
+        android:text="系统默认字体"
+        ~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_font_select.xml:33: Warning: Hardcoded string "宋体", should use @string resource [HardcodedText]
+        android:text="宋体"
+        ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_font_select.xml:43: Warning: Hardcoded string "黑体", should use @string resource [HardcodedText]
+        android:text="黑体"
+        ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_font_select.xml:53: Warning: Hardcoded string "等宽字体", should use @string resource [HardcodedText]
+        android:text="等宽字体"
+        ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_font_select.xml:63: Warning: Hardcoded string "仿宋字体", should use @string resource [HardcodedText]
+        android:text="仿宋字体"
+        ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_font_select.xml:73: Warning: Hardcoded string "楷体字体", should use @string resource [HardcodedText]
+        android:text="楷体字体"
+        ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_rhyme.xml:12: Warning: Hardcoded string "推荐韵脚", should use @string resource [HardcodedText]
+        android:text="推荐韵脚"
+        ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_rhyme.xml:24: Warning: Hardcoded string "请输入一个字、词或句子", should use @string resource [HardcodedText]
+        android:hint="请输入一个字、词或句子"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_rhyme.xml:35: Warning: Hardcoded string "推荐韵脚字：", should use @string resource [HardcodedText]
+        android:text="推荐韵脚字："
+        ~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_rhyme.xml:52: Warning: Hardcoded string "韵脚字将在此显示", should use @string resource [HardcodedText]
+            android:text="韵脚字将在此显示"
+            ~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_rhyme.xml:62: Warning: Hardcoded string "关闭", should use @string resource [HardcodedText]
+        android:text="关闭"
+        ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_settings.xml:17: Warning: Hardcoded string "字体选择", should use @string resource [HardcodedText]
+            android:text="字体选择"
+            ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_settings.xml:27: Warning: Hardcoded string "选择字体", should use @string resource [HardcodedText]
+            android:text="选择字体"
+            ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_settings.xml:36: Warning: Hardcoded string "字体大小", should use @string resource [HardcodedText]
+            android:text="字体大小"
+            ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_settings.xml:53: Warning: Hardcoded string "-", should use @string resource [HardcodedText]
+                android:text="-"
+                ~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_settings.xml:62: Warning: Hardcoded string "16", should use @string resource [HardcodedText]
+                android:text="16"
+                ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_settings.xml:71: Warning: Hardcoded string "+", should use @string resource [HardcodedText]
+                android:text="+"
+                ~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_settings.xml:81: Warning: Hardcoded string "排列方向", should use @string resource [HardcodedText]
+            android:text="排列方向"
+            ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_settings.xml:99: Warning: Hardcoded string "横排", should use @string resource [HardcodedText]
+                android:text="横排"
+                ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_settings.xml:107: Warning: Hardcoded string "竖排", should use @string resource [HardcodedText]
+                android:text="竖排"
+                ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_settings.xml:115: Warning: Hardcoded string "字体颜色", should use @string resource [HardcodedText]
+            android:text="字体颜色"
+            ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_settings.xml:162: Warning: Hardcoded string "选择排列方向", should use @string resource [HardcodedText]
+            android:text="选择排列方向"
+            ~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_settings.xml:172: Warning: Hardcoded string "关闭", should use @string resource [HardcodedText]
+            android:text="关闭"
+            ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_share.xml:12: Warning: Hardcoded string "分享作品", should use @string resource [HardcodedText]
+        android:text="分享作品"
+        ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_share.xml:23: Warning: Hardcoded string "作品预览：", should use @string resource [HardcodedText]
+        android:text="作品预览："
+        ~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_share.xml:42: Warning: Hardcoded string "作品预览将在此显示", should use @string resource [HardcodedText]
+            android:text="作品预览将在此显示"
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_share.xml:52: Warning: Hardcoded string "选择卡片背景", should use @string resource [HardcodedText]
+        android:text="选择卡片背景"
+        ~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_share.xml:68: Warning: Hardcoded string "保存到本地", should use @string resource [HardcodedText]
+            android:text="保存到本地"
+            ~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_share.xml:78: Warning: Hardcoded string "保存到我的作品", should use @string resource [HardcodedText]
+            android:text="保存到我的作品"
+            ~~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\dialog_share.xml:89: Warning: Hardcoded string "关闭", should use @string resource [HardcodedText]
+        android:text="关闭"
+        ~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\item_cipai.xml:21: Warning: Hardcoded string "词牌名", should use @string resource [HardcodedText]
+            android:text="词牌名"
+            ~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\item_cipai.xml:31: Warning: Hardcoded string "示例诗句", should use @string resource [HardcodedText]
+            android:text="示例诗句"
+            ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\item_work.xml:28: Warning: Hardcoded string "作品预览内容", should use @string resource [HardcodedText]
+                android:text="作品预览内容"
+                ~~~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\item_work.xml:47: Warning: Hardcoded string "作品标题", should use @string resource [HardcodedText]
+                android:text="作品标题"
+                ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\item_work.xml:59: Warning: Hardcoded string "作品类型", should use @string resource [HardcodedText]
+                android:text="作品类型"
+                ~~~~~~~~~~~~~~~~~~~
+D:\projects\Poem_AI_F\android\app\src\main\res\layout\item_work.xml:68: Warning: Hardcoded string "创建日期", should use @string resource [HardcodedText]
+                android:text="创建日期"
+                ~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+0 errors, 201 warnings

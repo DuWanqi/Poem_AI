@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/classical_background"
+    tools:context=".CardGenerateActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="生成分享卡片"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/classical_text"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- 卡片预览区域 -->
+    <LinearLayout
+        android:id="@+id/llCardPreview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp"
+        android:background="@android:drawable/edit_text"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/ivBackgroundPreview"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tvCardPreview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textColor="@color/classical_text"
+            android:lineSpacingExtra="4dp"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <!-- 背景选择按钮 -->
+    <Button
+        android:id="@+id/btnSelectBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择卡片背景"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_primary"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 生成操作按钮 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSaveToLocal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="保存到本地"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/classical_secondary"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnSaveToWorks"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="保存到我的作品"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/classical_primary"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- 返回按钮 -->
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="返回"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_accent"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

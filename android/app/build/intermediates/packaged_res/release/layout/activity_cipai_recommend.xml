@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/classical_background"
+    tools:context=".CiPaiRecommendActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/recommend_title"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/classical_text"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/your_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/classical_text"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/edit_text"
+        android:padding="12dp"
+        android:minHeight="100dp"
+        android:layout_marginBottom="24dp"
+        android:textSize="16sp"
+        android:textColor="@color/classical_text" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/btn_recommended"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/classical_text" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCiPaiList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_back"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_secondary" />
+
+</LinearLayout>

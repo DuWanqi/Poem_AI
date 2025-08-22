@@ -45,7 +45,7 @@ public class WorkAdapter extends RecyclerView.Adapter<WorkAdapter.WorkViewHolder
         public WorkViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
-            tvType = itemView.findViewById(R.id.tvType);
+//            tvType = itemView.findViewById(R.id.tvType);
             tvDate = itemView.findViewById(R.id.tvDate);
             tvContentPreview = itemView.findViewById(R.id.tvContentPreview);
         }
@@ -53,7 +53,7 @@ public class WorkAdapter extends RecyclerView.Adapter<WorkAdapter.WorkViewHolder
         public void bind(Map<String, Object> work) {
             // 从Map中获取作品信息并显示
             String title = (String) work.get("title");
-            String type = (String) work.get("workType");
+//            String type = (String) work.get("workType");
             String date = (String) work.get("updatedAt");
             String content = (String) work.get("content");
 
@@ -67,7 +67,7 @@ public class WorkAdapter extends RecyclerView.Adapter<WorkAdapter.WorkViewHolder
             }
 
             tvTitle.setText(title != null ? title : "未命名作品");
-            tvType.setText(type != null ? type : "未知类型");
+//            tvType.setText(type != null ? type : "未知类型");
             
             // 简化日期显示
             if (date != null && date.length() > 10) {

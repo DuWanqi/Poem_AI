@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/classical_background">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择字体"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/classical_text"
+        android:layout_marginBottom="16dp"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/btnDefault"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="系统默认字体"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_primary"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnSerif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="宋体"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_primary"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnSansSerif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="黑体"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_primary"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnMonospace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="等宽字体"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_primary"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnFangSong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="仿宋字体"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_primary"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnKaiTi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="楷体字体"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_primary"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnCloseFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/close"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_accent" />
+
+</LinearLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Include shared preferences for saved works and cards -->
+    <include domain="sharedpref" path="works_preferences.xml"/>
+    <include domain="sharedpref" path="cards_preferences.xml"/>
+    
+    <!-- Exclude sensitive data if any -->
+    <!-- <exclude domain="sharedpref" path="sensitive_data.xml"/> -->
+</full-backup-content>

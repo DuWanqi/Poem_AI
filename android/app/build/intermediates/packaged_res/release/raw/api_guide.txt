@@ -1,0 +1,35 @@
+DeepSeek API 申请指南
+
+1. 访问 DeepSeek 官网
+   打开浏览器，访问 DeepSeek 官方网站: https://www.deepseek.com/
+
+2. 注册账户
+   点击网站右上角的"登录"按钮，然后选择"注册"选项。
+   填写必要的注册信息，包括邮箱、密码等。
+   完成邮箱验证步骤。
+
+3. 进入控制台
+   登录后，访问 DeepSeek 开发者控制台: https://platform.deepseek.com/
+   如果这是您第一次访问，可能需要同意相关的服务条款。
+
+4. 创建 API Key
+   在控制台页面中找到"API Keys"或类似名称的选项。
+   点击"创建新的 API Key"或"+"按钮。
+   系统会生成一个新的 API Key，请注意API key只有第一次被创建时才能看到，请立即复制并妥善保管。
+
+5. 选择模型
+   在控制台中查看可用的模型列表。
+   确保您要使用的模型(如 deepseek-reasoner)在您的可用模型列表中。
+
+6. 查看文档
+   访问 DeepSeek API 文档了解如何使用 API:
+   https://platform.deepseek.com/docs
+
+7. 配置应用
+   将您生成的 API Key 复制并粘贴到本应用的 API Key 设置中。
+   确保网络连接正常，即可开始使用 AI 功能。
+
+注意事项:
+- 请勿将您的 API Key 分享给他人
+- 定期检查您的 API 使用情况和费用
+- 遵守 DeepSeek 的使用政策和限制

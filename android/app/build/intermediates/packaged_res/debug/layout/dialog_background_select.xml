@@ -34,26 +34,6 @@
         android:padding="12dp"
         android:layout_marginBottom="16dp">
 
-        <!-- 婉约风格 -->
-        <Button
-            android:id="@+id/btnElegant"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="婉约风格"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/classical_primary"
-            android:layout_marginBottom="8dp" />
-
-        <!-- 豪放风格 -->
-        <Button
-            android:id="@+id/btnHeroic"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="豪放风格"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/classical_primary"
-            android:layout_marginBottom="8dp" />
-
         <!-- 空白风格 -->
         <Button
             android:id="@+id/btnBlank"
@@ -69,9 +49,9 @@
             android:id="@+id/btnRedSolid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="朱红纯色"
+            android:text="深红纯色"
             android:textColor="@color/white"
-            android:backgroundTint="@color/classical_primary"
+            android:backgroundTint="@color/dark_red"
             android:layout_marginBottom="8dp" />
 
         <!-- 淡黑纯色 -->

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/classical_background">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AI补全诗词"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/classical_text"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- API Key按钮 -->
+    <Button
+        android:id="@+id/btnApiKey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="API Key设置"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_secondary"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Prompt输入框 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="提示词："
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/classical_text"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/etPrompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入提示词"
+        android:textColor="@color/classical_text"
+        android:textColorHint="@color/classical_text"
+        android:background="@android:drawable/edit_text"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"
+        android:inputType="textMultiLine"
+        android:minLines="2"
+        android:gravity="top" />
+
+    <!-- 补全按钮 -->
+    <Button
+        android:id="@+id/btnComplete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开始补全"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_primary"
+        android:layout_marginBottom="16dp" />
+
+    <!-- AI返回结果显示 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="补全结果："
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/classical_text"
+        android:layout_marginBottom="8dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:drawable/edit_text"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/tvCompletionResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AI补全结果将在此显示"
+            android:textColor="@color/classical_text"
+            android:textSize="16sp"
+            android:textIsSelectable="true"
+            android:enabled="true"
+            android:focusable="true"
+            android:longClickable="true" />
+    </ScrollView>
+
+    <!-- 关闭按钮 -->
+    <Button
+        android:id="@+id/btnCloseCompletion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="关闭"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/classical_accent"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

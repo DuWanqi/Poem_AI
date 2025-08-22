@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">诗词AI</string>
+    <string name="app_name">诗风</string>
     <string name="login">登录</string>
     <string name="register">注册</string>
     <string name="username">用户名</string>
     <string name="password">密码</string>
     <string name="confirm_password">确认密码</string>
-    <string name="welcome">欢迎使用诗词AI</string>
+    <string name="welcome">诗风</string>
     <string name="create_card">制作卡片</string>
     <string name="my_works">我的作品</string>
     <string name="compose_poem">创作诗词</string>
@@ -31,4 +31,6 @@
     <string name="horizontal">横排</string>
     <string name="vertical">竖排</string>
     <string name="close">关闭</string>
+    <string name="help">帮助</string>
+    <string name="how_to_use">如何使用</string>
 </resources>

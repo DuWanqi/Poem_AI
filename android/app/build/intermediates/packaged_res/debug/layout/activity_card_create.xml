@@ -24,7 +24,7 @@
             android:layout_height="64dp"
             android:src="@android:drawable/ic_menu_revert"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:tint="@color/classical_text"
+            app:tint="@color/classical_text"
             android:contentDescription="@string/btn_back" />
 
         <TextView
@@ -44,7 +44,7 @@
             android:layout_height="64dp"
             android:src="@android:drawable/ic_menu_manage"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:tint="@color/classical_text"
+            app:tint="@color/classical_text"
             android:contentDescription="@string/create_card" />
     </LinearLayout>
 

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@color/classical_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 字体选择 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="字体选择"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/classical_text"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnImportFont"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="选择字体"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/classical_primary" />
+
+        <!-- 字体大小调节 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="字体大小"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/classical_text"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnFontSizeDecrease"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="-"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/classical_primary" />
+
+            <TextView
+                android:id="@+id/tvFontSize"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="16"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textColor="@color/classical_text" />
+
+            <Button
+                android:id="@+id/btnFontSizeIncrease"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="+"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/classical_primary" />
+        </LinearLayout>
+
+        <!-- 排列方向选择 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="排列方向"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/classical_text"
+            android:layout_marginBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupDirection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/radioHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="横排"
+                android:textColor="@color/classical_text" />
+
+            <RadioButton
+                android:id="@+id/radioVertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="竖排"
+                android:textColor="@color/classical_text" />
+        </RadioGroup>
+
+        <!-- 字体颜色选择 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="字体颜色"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/classical_text"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnColorBlack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="@android:color/black"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnColorWhite"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="@android:color/white"
+                android:layout_marginEnd="8dp"
+                android:elevation="4dp" />
+
+            <Button
+                android:id="@+id/btnColorGold"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="#FFD700"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnColorDarkRed"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="#8B0000"
+                android:layout_marginEnd="8dp" />
+        </LinearLayout>
+
+        <!-- 排列方向选择按钮 -->
+        <Button
+            android:id="@+id/btnSelectDirection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="选择排列方向"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/classical_secondary" />
+
+        <!-- 关闭按钮 -->
+        <Button
+            android:id="@+id/btnCloseSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="关闭"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/classical_accent" />
+
+    </LinearLayout>
+</ScrollView>

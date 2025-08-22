@@ -23,9 +23,10 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 
 import com.example.poemai.utils.PreferencesManager;
-import com.example.poemai.network.RetrofitClient;
+import com.example.poemai.service.BackendService;
 import com.example.poemai.model.LoginResponse;
 import com.example.poemai.model.WorkSaveResponse;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -48,6 +49,7 @@ public class CardCreateActivity extends AppCompatActivity {
     private Button btnCreatePoem, btnRecommendCiPai, btnSaveCard;
     private ImageButton btnSettings, btnBack;
     private PreferencesManager preferencesManager;
+    private BackendService backendService; // 使用BackendService而不是Retrofit
     private SharedPreferences settingsPrefs;
     
     // 默认设置值
@@ -68,6 +70,7 @@ public class CardCreateActivity extends AppCompatActivity {
                                    WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
         preferencesManager = new PreferencesManager(this);
+        backendService = BackendService.getInstance(this); // 初始化BackendService
         settingsPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         
         // 加载保存的设置
@@ -78,6 +81,9 @@ public class CardCreateActivity extends AppCompatActivity {
         
         // 应用设置
         applySettings();
+        
+        // 检查是否有传入的内容需要显示
+        loadIncomingContent();
         
         // 确保EditText能够获取焦点并唤起键盘
         etCardContent.requestFocus();
@@ -266,6 +272,22 @@ public class CardCreateActivity extends AppCompatActivity {
         }
         
         return lengths;
+    }
+    
+    private void loadIncomingContent() {
+        // 通过JSON字符串传递数据
+        String workDataJson = getIntent().getStringExtra("work_data_json");
+        if (workDataJson != null) {
+            Gson gson = new Gson();
+            Map<String, Object> workData = gson.fromJson(workDataJson, Map.class);
+            
+            if (workData != null) {
+                String content = (String) workData.get("content");
+                if (content != null) {
+                    etCardContent.setText(content);
+                }
+            }
+        }
     }
     
     private void showSettingsDialog() {
@@ -480,38 +502,23 @@ public class CardCreateActivity extends AppCompatActivity {
         workData.put("content", content);
         workData.put("workType", "raw_card");
 
-        // 获取 token
-        String token = preferencesManager.getToken();
-        if (token == null) {
+        // 获取用户ID
+        long userId = preferencesManager.getUserId();
+        if (userId <= 0) {
             Toast.makeText(this, "请先登录", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // 调用 API 保存作品
-        Call<WorkSaveResponse> call = RetrofitClient.getInstance().getApiService().saveWork("Bearer " + token, workData);
-        call.enqueue(new Callback<WorkSaveResponse>() {
-            @Override
-            public void onResponse(Call<WorkSaveResponse> call, Response<WorkSaveResponse> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    WorkSaveResponse result = response.body();
-                    if (result.getCode() == 200 && result.getId() != null) {
-                        Toast.makeText(CardCreateActivity.this, "卡片保存成功", Toast.LENGTH_SHORT).show();
-                        // 保存成功后，设置结果并关闭当前Activity，以便MainActivity刷新
-                        setResult(RESULT_OK);
-                        finish();
-                    } else {
-                        Toast.makeText(CardCreateActivity.this, "保存失败: " + result.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(CardCreateActivity.this, "保存失败: " + response.message(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<WorkSaveResponse> call, Throwable t) {
-                Toast.makeText(CardCreateActivity.this, "网络错误: " + t.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
+        // 使用BackendService保存作品
+        BackendService.Result<Map<String, Object>> result = backendService.saveWork(workData, userId);
+        if (result.getCode() == 200 && result.getData() != null) {
+            Toast.makeText(CardCreateActivity.this, "卡片保存成功", Toast.LENGTH_SHORT).show();
+            // 保存成功后，设置结果并关闭当前Activity，以便MainActivity刷新
+            setResult(RESULT_OK);
+            finish();
+        } else {
+            Toast.makeText(CardCreateActivity.this, "保存失败: " + result.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
     
     @Override

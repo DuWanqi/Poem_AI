@@ -1,31 +1,26 @@
 package com.example.poemai;
 
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.poemai.model.ApiResponse;
+import com.example.poemai.database.DatabaseHelper;
 import com.example.poemai.utils.PreferencesManager;
-import com.example.poemai.network.RetrofitClient;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 public class GalleryActivity extends AppCompatActivity {
     private RecyclerView rvWorks;
-    private Button btnBack;
     private WorkAdapter workAdapter;
     private List<Map<String, Object>> worksList;
     private PreferencesManager preferencesManager;
+    private DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,53 +28,43 @@ public class GalleryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gallery);
 
         preferencesManager = new PreferencesManager(this);
-        
+        databaseHelper = new DatabaseHelper(this);
         initViews();
-        setupRecyclerView();
         loadWorks();
     }
 
     private void initViews() {
         rvWorks = findViewById(R.id.rvWorks);
-        btnBack = findViewById(R.id.btnBack);
-        
-        btnBack.setOnClickListener(v -> finish());
-    }
-
-    private void setupRecyclerView() {
         worksList = new ArrayList<>();
         workAdapter = new WorkAdapter(worksList);
-        
-        GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
-        rvWorks.setLayoutManager(layoutManager);
+        rvWorks.setLayoutManager(new LinearLayoutManager(this));
         rvWorks.setAdapter(workAdapter);
     }
 
     private void loadWorks() {
-        String token = preferencesManager.getToken();
-        if (token == null) {
+        long userId = preferencesManager.getUserId();
+        if (userId <= 0) {
             Toast.makeText(this, "请先登录", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // 调用 API 获取作品列表
-        Call<ApiResponse> call = RetrofitClient.getInstance().getApiService().getAllWorks("Bearer " + token);
-        call.enqueue(new Callback<ApiResponse>() {
-            @Override
-            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    worksList.clear();
-                    worksList.addAll(response.body().getData());
-                    workAdapter.notifyDataSetChanged();
-                } else {
-                    Toast.makeText(GalleryActivity.this, "加载作品列表失败: " + response.message(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ApiResponse> call, Throwable t) {
-                Toast.makeText(GalleryActivity.this, "网络错误: " + t.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
+        // 使用本地DatabaseHelper获取作品列表
+        List<DatabaseHelper.Work> works = databaseHelper.getWorksByUserId(userId);
+        worksList.clear();
+        
+        // 转换为适配器需要的格式
+        for (DatabaseHelper.Work work : works) {
+            Map<String, Object> workMap = new HashMap<>();
+            workMap.put("id", work.getId());
+            workMap.put("title", work.getTitle());
+            workMap.put("content", work.getContent());
+            workMap.put("workType", work.getWorkType());
+            workMap.put("backgroundInfo", work.getBackgroundInfo());
+            workMap.put("createdAt", work.getCreatedAt());
+            workMap.put("updatedAt", work.getUpdatedAt());
+            worksList.add(workMap);
+        }
+        
+        workAdapter.notifyDataSetChanged();
     }
 }

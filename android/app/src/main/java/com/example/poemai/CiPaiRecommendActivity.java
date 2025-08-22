@@ -2,6 +2,7 @@ package com.example.poemai;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.poemai.model.CiPai;
-import com.example.poemai.network.RetrofitClient;
+import com.example.poemai.service.BackendService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,11 +30,14 @@ public class CiPaiRecommendActivity extends AppCompatActivity {
     private CiPaiAdapter ciPaiAdapter;
     private List<CiPai> ciPaiList;
     private String cardContent;
+    private BackendService backendService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cipai_recommend);
+
+        backendService = BackendService.getInstance(this);
 
         initViews();
         setupRecyclerView();
@@ -72,35 +76,86 @@ public class CiPaiRecommendActivity extends AppCompatActivity {
 
     private void loadRecommendedCiPais() {
         // 获取传递的长度信息
-        // 这里简化处理，实际应该根据内容分析长度并请求匹配的词牌
+        // 根据内容分析长度并请求匹配的词牌
+        
+        Log.d("CiPaiRecommendActivity", "loadRecommendedCiPais called");
+        
+        if (cardContent == null || cardContent.isEmpty()) {
+            Toast.makeText(CiPaiRecommendActivity.this, "内容为空，无法推荐词牌", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        
+        Log.d("CiPaiRecommendActivity", "cardContent: " + cardContent);
         
         // 构造请求数据
-        Map<String, Object> requestBody = new HashMap<>();
-        List<List<Integer>> lengths = new ArrayList<>();
-        // 添加示例数据
-        List<Integer> line1 = new ArrayList<>();
-        line1.add(5);
-        line1.add(5);
-        lengths.add(line1);
-        requestBody.put("lengths", lengths);
+        List<List<Integer>> lengths = analyzeSentenceLengths(cardContent);
         
-        Call<List<CiPai>> call = RetrofitClient.getInstance().getApiService().matchCiPai(requestBody);
-        call.enqueue(new Callback<List<CiPai>>() {
-            @Override
-            public void onResponse(Call<List<CiPai>> call, Response<List<CiPai>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    ciPaiList.clear();
-                    ciPaiList.addAll(response.body());
-                    ciPaiAdapter.notifyDataSetChanged();
-                } else {
-                    Toast.makeText(CiPaiRecommendActivity.this, "未找到匹配的词牌", Toast.LENGTH_SHORT).show();
+        Log.d("CiPaiRecommendActivity", "analyzed lengths: " + lengths);
+        
+        // 使用本地BackendService进行词牌匹配
+        // 传递完整的二维列表
+        try {
+            // 将二维列表展平为一维列表
+            List<Integer> flatLengths = new ArrayList<>();
+            for (List<Integer> sublist : lengths) {
+                flatLengths.addAll(sublist);
+            }
+            
+            BackendService.Result<List<BackendService.CiPai>> result = backendService.matchCiPaiByLengths(flatLengths);
+            
+            Log.d("CiPaiRecommendActivity", "matchCiPaiByLengths result code: " + result.getCode());
+            
+            if (result.getCode() == 200 && result.getData() != null) {
+                Log.d("CiPaiRecommendActivity", "matchCiPaiByLengths result data size: " + result.getData().size());
+                
+                ciPaiList.clear();
+                // 将BackendService.CiPai转换为model.CiPai
+                for (BackendService.CiPai backendCiPai : result.getData()) {
+                    CiPai modelCiPai = new CiPai();
+                    modelCiPai.setId(backendCiPai.getId());
+                    modelCiPai.setName(backendCiPai.getName());
+                    modelCiPai.setExampleText(backendCiPai.getExampleText());
+                    modelCiPai.setSentenceLengths(backendCiPai.getSentenceLengths());
+                    ciPaiList.add(modelCiPai);
+                }
+                ciPaiAdapter.notifyDataSetChanged();
+            } else {
+                Log.d("CiPaiRecommendActivity", "Failed to match ci pai: " + result.getMessage());
+                Toast.makeText(CiPaiRecommendActivity.this, "未找到匹配的词牌: " + result.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            Log.e("CiPaiRecommendActivity", "Exception in matchCiPaiByLengths", e);
+            Toast.makeText(CiPaiRecommendActivity.this, "匹配词牌时出错: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+    
+    /**
+     * 分析文本内容，根据句号分割句子并计算每句的字符长度
+     * @param content 输入的文本内容
+     * @return 句子长度的二维列表，例如[[7, 6],[7],[5, 5]]
+     */
+    private List<List<Integer>> analyzeSentenceLengths(String content) {
+        List<List<Integer>> allLengths = new ArrayList<>();
+        if (content != null && !content.isEmpty()) {
+            // 按句号、问号、感叹号、分号分割成句子组
+            String[] sentenceGroups = content.split("[。？！；]");
+            for (String group : sentenceGroups) {
+                if (!group.trim().isEmpty()) {
+                    // 对每个句子组，按逗号和顿号进一步分割
+                    String[] phrases = group.split("[，、]");
+                    List<Integer> lengths = new ArrayList<>();
+                    for (String phrase : phrases) {
+                        if (!phrase.trim().isEmpty()) {
+                            lengths.add(phrase.trim().length());
+                        }
+                    }
+                    // 只有当lengths不为空时才添加
+                    if (!lengths.isEmpty()) {
+                        allLengths.add(lengths);
+                    }
                 }
             }
-
-            @Override
-            public void onFailure(Call<List<CiPai>> call, Throwable t) {
-                Toast.makeText(CiPaiRecommendActivity.this, "网络错误: " + t.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
+        }
+        return allLengths;
     }
 }

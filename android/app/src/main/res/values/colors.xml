@@ -14,8 +14,9 @@
     <color name="classical_primary">#3B8D6F</color>    <!-- 深红色主色调 -->
     <color name="classical_secondary">#D4A345</color>  <!-- 次要颜色 -->
     <color name="classical_accent">#9C4A1A</color>     <!-- 强调色 -->
+    <color name="classical_secondary_text">#757575</color> <!-- 次要文字颜色 -->
     
     <!-- 新增颜色 -->
     <color name="gold">#FFD700</color>                 <!-- 金色 -->
-    <color name="dark_red">#8B0000</color>             <!-- 深红色 -->
+    <color name="dark_red">#800000</color>             <!-- 深红色 -->
 </resources>
